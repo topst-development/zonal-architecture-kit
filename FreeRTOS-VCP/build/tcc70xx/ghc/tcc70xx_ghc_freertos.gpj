@@ -1,0 +1,40 @@
+#!gbuild
+primaryTarget=arm_standalone.tgt
+#component top_level_project
+[Project]
+	-bsp generic
+	-object_dir=objs
+	-nostartfiles
+	-dwarf2
+	-uvfd
+	--slash_comment
+	-japanese_automotive_c
+	--signed_chars
+	-check=nomemory
+	-no_fast_malloc
+	-nobigswitch
+	--switch_table
+	--unknown_pragma_silent
+	-no_undefined
+	--ghstd=last
+	-littleendian
+	-pack=4
+	--no_misra_runtime
+	--long_long
+	-ansi
+	--prototype_errors
+	--incorrect_pragma_errors
+	--misra_req=silent
+	--misra_adv=silent
+	--preprocess_linker_directive_full
+	-noobj
+	-memory
+	-no_multiple
+	-fhard
+	-G
+	-cpu=cortexr5f
+	-fpu=vfpv3_d16
+	-O0
+	:sourceDir=.\..\..\..\sources
+tgt\resources.gpj		[Project]
+src_program\tcc70xx_src_freertos_512.gpj		[Program]

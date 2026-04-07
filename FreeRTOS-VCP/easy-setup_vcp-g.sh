@@ -1,0 +1,1 @@
+tools/easy-setup_vcp-g.sh

@@ -1,0 +1,49 @@
+//===========================================================================
+//
+//                       Load Bootlaoder for TCC701x (R5)
+//
+//===========================================================================
+
+GLOBAL &outputPath
+GLOBAL &netSrcPath
+GLOBAL &realSrcPath
+
+//---------------------------------------------------------------------------
+// Set Environment 
+//---------------------------------------------------------------------------
+&outputPath="Z:\MICOM\VCP\vcp_git\vcp_mcu\"
+&netSrcPath="Z:"
+&realSrcPath="\home\B100327"
+
+//---------------------------------------------------------------------------
+// Debugging 
+//---------------------------------------------------------------------------
+SYStem.MODE Down
+
+//Break.Delete /ALL
+
+sys.option.EnReset off
+sys.cpu CortexR5F
+sys.CONFIG.AHBACCESSPORT 0
+sys.CONFIG.DEBUGACCESSPORT 1
+
+sys.config corebase	0x80410000
+sys.mode prepare
+
+sys.m.a
+
+if run()
+	Break
+
+cd &outputPath
+//d.load.elf build\tcc70xx\gcc\tcc70xx-freertos-release\boot /RELPATH /PATH ./ /nocode
+d.load.elf build\tcc70xx\gcc\tcc70xx-freertos-debug\boot /RELPATH /PATH ./ /nocode
+
+if (("&netSrcPath"!="")&&("&realSrcPath"!=""))
+(
+	sYmbol.SourcePATH.Translate "&realSrcPath" "&netSrcPath"
+)
+
+d.l
+
+enddo

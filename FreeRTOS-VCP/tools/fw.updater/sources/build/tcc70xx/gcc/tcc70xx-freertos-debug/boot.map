@@ -1,0 +1,1285 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o (memcmp)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o (memcpy)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o (memset)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o (__aeabi_uldivmod)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+                              /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o) (__udivmoddi4)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+                              /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+                              /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o) (__clzdi2)
+/opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+                              /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o) (__clzsi2)
+
+Discarded input sections
+
+ .ARM.extab     0x0000000000000000        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0000000000000000        0x8 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+VECTOR           0x0000000000000000 0x0000000000000200 xrw
+SRAM             0x0000000000028000 0x0000000000016980 xrw
+SRAM_ARM_STACK   0x000000000003e980 0x0000000000000680 xrw
+NC_SRAM          0x000000000003f000 0x0000000000001000 xrw
+REMAP_FLASH      0x0000000000000200 0x0000000000027e00 xr
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                __VECTOR_START = 0x0
+                0x0000000000001000                DMA_NC_SIZE = 0x1000
+                0x0000000000040000                SRAM_TOTAL_SIZE = 0x40000
+                0x0000000000018000                STACK_TOTAL_SIZE = 0x18000
+                0x0000000000000680                ARM_STACK_SIZE = 0x680
+                0x000000000003f000                STACK_BASE_ADDR = ((__VECTOR_START + SRAM_TOTAL_SIZE) - DMA_NC_SIZE)
+
+.text           0x0000000000000200    0x22d24
+                0x0000000000000200                __TEXT_START__ = .
+ *startup.o(.text)
+ .text          0x0000000000000200      0x230 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+                0x0000000000000200                reset
+ *(.text)
+ .text          0x0000000000000430      0x258 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+                0x0000000000000430                cmain
+ .text          0x0000000000000688      0xb5c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                0x000000000000091c                FWUD_Init
+                0x0000000000000abc                FWUD_Process
+ .text          0x00000000000011e4     0x1640 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                0x00000000000011e4                ECCP_InitSPIManager
+                0x0000000000001410                ECCP_Open
+                0x00000000000015c4                ECCP_Send
+                0x00000000000016c4                ECCP_CheckRx
+                0x00000000000017a4                ECCP_Recv
+                0x00000000000019b4                ECCP_CalcCrc16
+ .text          0x0000000000002824      0x894 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                0x0000000000002824                HSM_Init
+                0x00000000000029a0                HSM_GetVersion
+                0x0000000000002b3c                HSM_GetMFCERT
+                0x0000000000002c58                HSM_GetSecureHSM
+                0x0000000000002de0                HSM_SBEnable
+                0x0000000000002f34                HSM_SBVerifyStop
+ .text          0x00000000000030b8     0x21cc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                0x0000000000004154                CLOCK_Init
+                0x000000000000421c                CLOCK_SetPllDiv
+                0x0000000000004380                CLOCK_GetPllRate
+                0x00000000000043f8                CLOCK_SetPllRate
+                0x0000000000004998                CLOCK_SetClkCtrlRate
+                0x0000000000004a38                CLOCK_GetClkCtrlRate
+                0x0000000000004b90                CLOCK_IsPeriEnabled
+                0x0000000000004bf8                CLOCK_EnablePeri
+                0x0000000000004c58                CLOCK_DisablePeri
+                0x0000000000004cb8                CLOCK_GetPeriRate
+                0x0000000000004e34                CLOCK_SetPeriRate
+                0x0000000000004f50                CLOCK_IsIobusPwdn
+                0x0000000000005004                CLOCK_EnableIobus
+                0x00000000000050a4                CLOCK_SetIobusPwdn
+                0x0000000000005194                CLOCK_SetSwReset
+ .text          0x0000000000005284      0xba8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+                0x0000000000005284                DBG_Putc
+                0x00000000000056e4                DBG_Printfi
+                0x0000000000005e00                DBG_SerialPrintf
+ .text          0x0000000000005e2c       0x74 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+                0x0000000000005e2c                BSP_PreInit
+                0x0000000000005e48                BSP_Init
+                0x0000000000005e64                BSP_UndefAbortExceptionHook
+                0x0000000000005e8c                BSP_SystemHalt
+ .text          0x0000000000005ea0     0x1990 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                0x000000000000659c                EFLASH_WriteByte
+                0x0000000000006c70                EFLASH_Erase
+                0x00000000000071d4                EFLASH_Init
+                0x0000000000007210                EFLASH_FWDN_LowFormat
+                0x0000000000007270                EFLASH_FWDN_Read
+                0x0000000000007318                EFLASH_FWDN_Write
+ .text          0x0000000000007830     0x11f0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                0x0000000000007830                GDMA_InterruptEnable
+                0x0000000000007904                GDMA_InterruptDisable
+                0x00000000000079d8                GDMA_SetAddrIncrement
+                0x0000000000007aa8                GDMA_SetTransferWidth
+                0x0000000000007b78                GDMA_SetBurstSize
+                0x0000000000007c48                GDMA_SetTransferSize
+                0x0000000000007cf8                GDMA_SetFlowControl
+                0x0000000000007da8                GDMA_Reset
+                0x0000000000007e14                GDMA_SetPeri
+                0x0000000000007ed4                GDMA_GetTransferSize
+                0x000000000000814c                GDMA_ChannelEnable
+                0x00000000000081ec                GDMA_WaitInterrupt
+                0x00000000000082a4                GDMA_ChannelDisable
+                0x00000000000083f8                GDMA_SetSrcAddr
+                0x0000000000008478                GDMA_SetDestAddr
+                0x00000000000084f8                GDMA_SetlliAddr
+                0x0000000000008578                GDMA_TransferMem2Mem
+                0x0000000000008818                GDMA_Init
+ .text          0x0000000000008a20      0xbd8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                0x0000000000008c70                GIC_Init
+                0x0000000000008d30                GIC_DeInit
+                0x0000000000008d74                GIC_IntSrcEn
+                0x0000000000008e6c                GIC_IntSrcDis
+                0x0000000000008f64                GIC_IntPrioSet
+                0x0000000000008fac                GIC_IntVectSet
+                0x0000000000009180                GIC_IntHandlerWithParam
+                0x0000000000009240                GIC_IntHandler
+                0x0000000000009304                GIC_IntSGI
+                0x00000000000093a0                GIC_SmIrqEn
+                0x00000000000094cc                GIC_SmIrqSetHigh
+ .text          0x00000000000095f8      0xf00 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                0x00000000000095f8                GPIO_Config
+                0x0000000000009d30                GPIO_Get
+                0x0000000000009da8                GPIO_Set
+                0x0000000000009e68                GPIO_ToNum
+                0x0000000000009f48                GPIO_PerichSel
+                0x000000000000a0bc                GPIO_MfioCfg
+                0x000000000000a3b4                GPIO_IntExtSet
+ .text          0x000000000000a4f8     0x86b0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                0x000000000000b250                GPSB_Reset
+                0x000000000000c150                GPSB_SetSpeed
+                0x000000000000c420                GPSB_SetBpw
+                0x000000000000c72c                GPSB_SetBpwNoSwap
+                0x000000000000c97c                GPSB_SetMode
+                0x000000000000cef0                GPSB_CsAlloc
+                0x000000000000d078                GPSB_CsInit
+                0x000000000000d168                GPSB_CsActivate
+                0x000000000000d21c                GPSB_CsDeactivate
+                0x000000000000e654                GPSB_AsyncXfer
+                0x000000000000eb20                GPSB_Xfer
+                0x000000000000f2e8                GPSB_Open
+                0x000000000000fac8                GPSB_Close
+                0x0000000000011238                GPSB_SetLbCfg
+                0x00000000000113b0                GPSB_ClearLbCfg
+                0x00000000000119dc                GPSB_Init
+                0x0000000000011b84                GPSB_Deinit
+                0x0000000000011be4                GPSB_SafetyEnableLock
+                0x0000000000011cfc                GPSB_SafetyDisableLock
+                0x0000000000011e14                GPSB_SafetyEnableLoopback
+                0x0000000000011f80                GPSB_SafetyDisableLoopback
+                0x0000000000012098                GPSB_SafetyEnableMonitor
+                0x00000000000122c0                GPSB_SafetyDisableMonitor
+                0x000000000001238c                GPSB_SafetyGetStatus
+                0x0000000000012560                GPSB_FillSlaveTXData
+                0x000000000001277c                GPSB_SetSlaveDMAMode
+                0x0000000000012a88                GPSB_GetSlaveRXData
+                0x0000000000012ac4                GPSB_GetStatus
+                0x0000000000012b04                GPSB_ClearDMABuffer
+ .text          0x0000000000012ba8        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .text          0x0000000000012ba8     0x10d4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                0x0000000000012ba8                MBOX_PhyReady
+                0x0000000000012e1c                MBOX_PhyBitSetCtrl
+                0x0000000000012ea0                MBOX_PhyBitClearCtrl
+                0x0000000000012ef8                MBOX_PhyIsIlevelSet
+                0x0000000000012f48                MBOX_PhyIsIenSet
+                0x0000000000012f9c                MBOX_PhyIsOenSet
+                0x0000000000012ff0                MBOX_PhyIsFlushedCmd
+                0x0000000000013044                MBOX_PhyIsFlushedData
+                0x0000000000013098                MBOX_PhyCountScmd
+                0x00000000000130ec                MBOX_PhyFullScmd
+                0x0000000000013140                MBOX_PhyEmptyScmd
+                0x0000000000013194                MBOX_PhyCountMcmd
+                0x00000000000131e8                MBOX_PhyFullMcmd
+                0x000000000001323c                MBOX_PhyEmptyMcmd
+                0x000000000001328c                MBOX_PhyEmptyMdata
+                0x00000000000132e0                MBOX_PhyFullMdata
+                0x0000000000013334                MBOX_PhyCountMdata
+                0x0000000000013380                MBOX_PhyEmptySdata
+                0x00000000000133d4                MBOX_PhyFullSdata
+                0x0000000000013428                MBOX_PhyCountSdata
+                0x0000000000013474                MBOX_PhyWriteCmd
+                0x0000000000013630                MBOX_PhyReadCmd
+                0x00000000000138b4                MBOX_PhyWriteData
+                0x000000000001399c                MBOX_PhyReadData
+                0x0000000000013aa4                MBOX_PhySetOwnTmnSts
+                0x0000000000013b58                MBOX_PhyGetOwnTmnSts
+                0x0000000000013be8                MBOX_PhyGetOppTmnSts
+ .text          0x0000000000013c7c     0x3e84 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                0x0000000000013c7c                MBOX_DevInit
+                0x00000000000140ac                MBOX_DevOpen
+                0x00000000000147ac                MBOX_DevSend
+                0x0000000000014cc0                MBOX_DevSendSss
+                0x00000000000151c8                MBOX_DevSendCmd
+                0x000000000001561c                MBOX_DevSendData
+                0x0000000000015b2c                MBOX_DevRecv
+                0x0000000000015ca4                MBOX_DevRecvSss
+                0x0000000000015e1c                MBOX_DevRecvCmd
+                0x0000000000015e50                MBOX_DevRecvData
+                0x0000000000016b24                MBOX_DevIoctl
+ .text          0x0000000000017b00      0x278 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+                0x0000000000017c68                MBOX_Init
+ .text          0x0000000000017d78      0x20c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+                0x0000000000017ea0                MPU_Init
+                0x0000000000017f58                MPU_GetDMABaseAddress
+ .text          0x0000000000017f84     0x5e30 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                0x000000000001c0d8                SNOR_MIO_Init
+                0x000000000001d2c4                SNOR_MIO_Erase
+                0x000000000001d88c                SNOR_MIO_Write
+                0x000000000001d9e4                SNOR_MIO_Read_Fast
+                0x000000000001da1c                SNOR_MIO_Read
+                0x000000000001da54                SNOR_MIO_FWDN_LowFormat
+                0x000000000001da78                SNOR_MIO_FWDN_Read
+                0x000000000001dab0                SNOR_MIO_FWDN_Write
+                0x000000000001dd3c                SNOR_MIO_AutoRead
+ .text          0x000000000001ddb4     0x46f4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                0x000000000001ddb4                UART_Open
+                0x000000000001de2c                UART_Close
+                0x000000000001e00c                UART_Read
+                0x000000000001e1ac                UART_Write
+                0x000000000001e324                UART_GetData
+                0x000000000001e468                UART_GetChar
+                0x000000000001e5ec                UART_PutChar
+                0x000000000001e6dc                UART_SetLineControlReg
+                0x000000000001e764                UART_SetInterruptClearReg
+                0x000000000001e79c                UART_SetErrorClearReg
+                0x000000000001e7d4                UART_GetReceiveStatusReg
+                0x000000000001e80c                UART_GetRawInterruptStatusReg
+                0x000000000001e844                UART_Init
+                0x000000000001e928                UART_ISR
+ .text          0x00000000000224a8      0x4e8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                0x00000000000224a8                SAL_CoreDiv64To32
+                0x0000000000022750                SAL_MemSet
+                0x00000000000227a4                SAL_MemCopy
+                0x00000000000227fc                SAL_MemCmp
+                0x000000000002287c                SAL_CoreMB
+                0x0000000000022894                SAL_CoreCriticalEnter
+                0x00000000000228cc                SAL_CoreCriticalExit
+                0x00000000000228f4                SAL_TaskSleep
+                0x0000000000022958                SAL_DbgReportError
+ .text          0x0000000000022990        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .text          0x0000000000022990        0x4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+                0x0000000000022990                vfp_init
+ .text          0x0000000000022994        0xc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+                0x0000000000022994                ARM_DSB
+ .text          0x00000000000229a0       0x18 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                0x00000000000229a0                ARM_ExceptUndefInstrHndlr
+                0x00000000000229a4                ARM_ExceptSwiHndlr
+                0x00000000000229a8                ARM_ExceptPrefetchAbortHndlr
+                0x00000000000229ac                ARM_ExceptDataAbortHndlr
+                0x00000000000229b0                ARM_ExceptIrqHndlr
+                0x00000000000229b4                ARM_ExceptFiqHndlr
+ .text          0x00000000000229b8       0x68 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+                0x00000000000229b8                arm_irq
+                0x00000000000229ec                CPU_WaitForEvent
+                0x00000000000229f8                CPU_DSB
+                0x0000000000022a04                CPU_SR_Save
+                0x0000000000022a14                CPU_SR_Restore
+ .text          0x0000000000022a20      0x104 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+                0x0000000000022a20                memcmp
+ .text          0x0000000000022b24      0x110 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+                0x0000000000022b24                memcpy
+ .text          0x0000000000022c34      0x114 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+                0x0000000000022c34                memset
+ .text          0x0000000000022d48       0x3c /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000000022d48                __aeabi_uldivmod
+ .text          0x0000000000022d84      0x12c /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+                0x0000000000022d84                __udivmoddi4
+ .text          0x0000000000022eb0        0x4 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+                0x0000000000022eb0                __aeabi_ldiv0
+                0x0000000000022eb0                __aeabi_idiv0
+ .text          0x0000000000022eb4       0x28 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+                0x0000000000022eb4                __clzdi2
+ .text          0x0000000000022edc       0x48 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+                0x0000000000022edc                __clzsi2
+                0x0000000000022f24                __TEXT_END__ = .
+                0x0000000000022f24                . = ALIGN (0x4)
+
+.rodata         0x0000000000022f24     0x2a9c
+                0x0000000000022f24                __RODATA_START__ = .
+ *(.rodata)
+ .rodata        0x0000000000022f24      0x193 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ *fill*         0x00000000000230b7        0x1 
+ .rodata        0x00000000000230b8      0x2ad /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ *fill*         0x0000000000023365        0x3 
+ .rodata        0x0000000000023368      0x2ca /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ *fill*         0x0000000000023632        0x2 
+ .rodata        0x0000000000023634       0xf5 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ *fill*         0x0000000000023729        0x3 
+ .rodata        0x000000000002372c       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ *fill*         0x0000000000023751        0x3 
+ .rodata        0x0000000000023754        0x4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .rodata        0x0000000000023758      0x13e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ *fill*         0x0000000000023896        0x2 
+ .rodata        0x0000000000023898      0x1a8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .rodata        0x0000000000023a40     0x10e1 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ *fill*         0x0000000000024b21        0x3 
+ .rodata        0x0000000000024b24      0x210 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+                0x0000000000024b24                gpsbport
+                0x0000000000024d1c                gpsb_sm
+ .rodata        0x0000000000024d34      0x5a0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .rodata        0x00000000000252d4       0x42 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ *fill*         0x0000000000025316        0x2 
+ .rodata        0x0000000000025318       0xd0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .rodata        0x00000000000253e8      0x2c9 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ *fill*         0x00000000000256b1        0x3 
+ .rodata        0x00000000000256b4      0x2fd /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ *(.rodata.*)
+ *(.const)
+ *(.const.*)
+                0x00000000000259c0                . = ALIGN (0x20)
+ *fill*         0x00000000000259b1        0xf 
+                0x00000000000259c0                __RODATA_END__ = .
+
+.vector         0x0000000000000000       0x60 load address 0x00000000000259c0
+                0x00000000000259c0                __VECTOR_START_LOAD = LOADADDR (.vector)
+                0x0000000000000000                __VECTOR_START__ = .
+ *vector.o(.vector .text .rodata .rodata*)
+ .vector        0x0000000000000000       0x50 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+                0x0000000000000000                _vector
+                0x0000000000000000                _start
+                0x0000000000000024                ARM_Reserved
+                0x0000000000000060                . = ALIGN (0x20)
+ *fill*         0x0000000000000050       0x10 
+                0x0000000000000060                __VECTOR_END__ = .
+
+.data           0x0000000000028000      0xcc0 load address 0x0000000000025a20
+                0x0000000000025a20                __DATA_START_LOAD = LOADADDR (.data)
+                0x0000000000028000                __DATA_START__ = .
+ *(.data)
+ .data          0x0000000000028000        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .data          0x0000000000028000        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .data          0x0000000000028000        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .data          0x0000000000028000        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .data          0x0000000000028000        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .data          0x0000000000028000       0xa6 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+                0x0000000000028000                gDebugOption
+                0x0000000000028004                dbgTags
+ .data          0x00000000000280a6        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ *fill*         0x00000000000280a6        0x2 
+ .data          0x00000000000280a8        0x8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                0x00000000000280a8                HwPflash_RegisterMap
+                0x00000000000280ac                HwDflash_RegisterMap
+ .data          0x00000000000280b0       0x60 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .data          0x0000000000028110        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .data          0x0000000000028110        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .data          0x0000000000028110        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .data          0x0000000000028110      0x228 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+                0x0000000000028110                gpsb
+ .data          0x0000000000028338      0x268 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                0x0000000000028338                mboxInfo
+ .data          0x00000000000285a0      0x408 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .data          0x00000000000289a8        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .data          0x00000000000289a8        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .data          0x00000000000289a8      0x2e4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                0x00000000000289a8                gSNOR_MIO_ProductTable
+ .data          0x0000000000028c8c       0x30 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .data          0x0000000000028cbc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .data          0x0000000000028cbc        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+ *(.data.*)
+                0x0000000000028cc0                . = ALIGN (0x20)
+ *fill*         0x0000000000028cbc        0x4 
+                0x0000000000028cc0                __DATA_END__ = .
+
+.bss            0x0000000000028cc0     0xb3a0 load address 0x00000000000266e0
+                0x0000000000028cc0                . = ALIGN (0x20)
+                0x0000000000028cc0                __BSS_START__ = .
+ *(.bss)
+ .bss           0x0000000000028cc0        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .bss           0x0000000000028cc0      0x21c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                0x0000000000028cd8                sEccpMsg
+ .bss           0x0000000000028edc     0x3178 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .bss           0x000000000002c054        0x4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .bss           0x000000000002c058       0x1c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .bss           0x000000000002c074        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .bss           0x000000000002c074        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .bss           0x000000000002c074        0x4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                0x000000000002c074                uiDataBuffer
+ .bss           0x000000000002c078        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .bss           0x000000000002c078      0x738 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .bss           0x000000000002c7b0        0xc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                0x000000000002c7b0                mfio_ch_cfg_flag
+ .bss           0x000000000002c7bc       0x40 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .bss           0x000000000002c7fc        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .bss           0x000000000002c7fc     0x570c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .bss           0x0000000000031f08       0xa0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .bss           0x0000000000031fa8       0x28 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .bss           0x0000000000031fd0        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .bss           0x0000000000031fd0     0x111c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                0x0000000000031fd0                snor_mio_drv
+ .bss           0x00000000000330ec      0xf38 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .bss           0x0000000000034024        0x4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .bss           0x0000000000034028       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .bss           0x0000000000034048        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .bss           0x0000000000034048        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .bss           0x0000000000034048        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .bss           0x0000000000034048        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .bss           0x0000000000034048        0x0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .bss           0x0000000000034048        0x0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+ *(.bss.*)
+                0x0000000000034060                . = ALIGN (0x20)
+ *fill*         0x0000000000034048       0x18 
+                0x0000000000034060                __BSS_END__ = .
+
+.arm_stack      0x000000000003e980      0x680
+                0x000000000003e980                __stack_start = .
+                0x000000000003f000                . = (. + 0x680)
+ *fill*         0x000000000003e980      0x680 
+                0x000000000003f000                _stack_end = .
+
+.nc_dma         0x000000000003f000     0x1000 load address 0x0000000000034060
+                0x000000000003f000                __nc_dmastart = .
+                0x0000000000040000                . = (. + DMA_NC_SIZE)
+ *fill*         0x000000000003f000     0x1000 
+                0x0000000000040000                _end_of_nc_dma = .
+                0x0000000000040000                _end = .
+                0x0000000000040000                __end = _end
+                [!provide]                        PROVIDE (end, .)
+
+/DISCARD/
+ *(.ARM.exidx* .ARM.extab* .glue* .vfp11_veneer .v4_bx .iplt .igot.* .rel.*)
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+LOAD /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+LOAD /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a
+LOAD /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libm.a
+LOAD /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a
+OUTPUT(/home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/boot elf32-littlearm)
+
+.debug_info     0x0000000000000000    0x1e869
+ .debug_info    0x0000000000000000     0x1519 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .debug_info    0x0000000000001519      0x7d3 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .debug_info    0x0000000000001cec     0x2468 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .debug_info    0x0000000000004154      0xe38 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .debug_info    0x0000000000004f8c     0x1b62 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .debug_info    0x0000000000006aee      0x526 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .debug_info    0x0000000000007014      0x170 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .debug_info    0x0000000000007184     0x2827 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .debug_info    0x00000000000099ab     0x1151 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .debug_info    0x000000000000aafc      0xc6b /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .debug_info    0x000000000000b767      0x80c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .debug_info    0x000000000000bf73     0x2490 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .debug_info    0x000000000000e403      0x653 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .debug_info    0x000000000000ea56     0x1493 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .debug_info    0x000000000000fee9     0x20c4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .debug_info    0x0000000000011fad     0x2097 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .debug_info    0x0000000000014044     0x1595 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .debug_info    0x00000000000155d9     0x144b /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .debug_info    0x0000000000016a24     0x3003 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .debug_info    0x0000000000019a27      0xe54 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .debug_info    0x000000000001a87b      0x106 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .debug_info    0x000000000001a981      0x105 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .debug_info    0x000000000001aa86      0x107 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .debug_info    0x000000000001ab8d      0x104 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .debug_info    0x000000000001ac91       0xfc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .debug_info    0x000000000001ad8d      0x105 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .debug_info    0x000000000001ae92      0x91d /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .debug_info    0x000000000001b7af      0x938 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_info    0x000000000001c0e7      0xe22 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .debug_info    0x000000000001cf09      0x1a3 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x000000000001d0ac     0x12c8 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .debug_info    0x000000000001e374      0x1a7 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x000000000001e51b      0x1a7 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .debug_info    0x000000000001e6c2      0x1a7 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+
+.debug_abbrev   0x0000000000000000     0x3228
+ .debug_abbrev  0x0000000000000000      0x187 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .debug_abbrev  0x0000000000000187      0x218 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .debug_abbrev  0x000000000000039f      0x29b /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .debug_abbrev  0x000000000000063a      0x23c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .debug_abbrev  0x0000000000000876      0x2a2 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .debug_abbrev  0x0000000000000b18      0x1a6 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .debug_abbrev  0x0000000000000cbe       0xb9 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .debug_abbrev  0x0000000000000d77      0x2a9 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .debug_abbrev  0x0000000000001020      0x221 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .debug_abbrev  0x0000000000001241      0x1c2 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .debug_abbrev  0x0000000000001403      0x15a /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .debug_abbrev  0x000000000000155d      0x241 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .debug_abbrev  0x000000000000179e       0xc4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .debug_abbrev  0x0000000000001862      0x297 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .debug_abbrev  0x0000000000001af9      0x2fd /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .debug_abbrev  0x0000000000001df6      0x287 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .debug_abbrev  0x000000000000207d      0x1bf /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .debug_abbrev  0x000000000000223c      0x2bc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .debug_abbrev  0x00000000000024f8      0x261 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .debug_abbrev  0x0000000000002759      0x270 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .debug_abbrev  0x00000000000029c9       0x14 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .debug_abbrev  0x00000000000029dd       0x14 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .debug_abbrev  0x00000000000029f1       0x14 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .debug_abbrev  0x0000000000002a05       0x14 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .debug_abbrev  0x0000000000002a19       0x14 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .debug_abbrev  0x0000000000002a2d       0x14 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .debug_abbrev  0x0000000000002a41      0x1bd /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .debug_abbrev  0x0000000000002bfe      0x1e2 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_abbrev  0x0000000000002de0      0x1de /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .debug_abbrev  0x0000000000002fbe       0x14 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x0000000000002fd2      0x21a /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .debug_abbrev  0x00000000000031ec       0x14 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x0000000000003200       0x14 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .debug_abbrev  0x0000000000003214       0x14 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+
+.debug_loc      0x0000000000000000     0x5da7
+ .debug_loc     0x0000000000000000       0x64 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .debug_loc     0x0000000000000064      0x1cc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .debug_loc     0x0000000000000230      0x3c8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .debug_loc     0x00000000000005f8      0x150 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .debug_loc     0x0000000000000748      0x640 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .debug_loc     0x0000000000000d88      0x180 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .debug_loc     0x0000000000000f08       0xc8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .debug_loc     0x0000000000000fd0      0x3b0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .debug_loc     0x0000000000001380      0x440 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .debug_loc     0x00000000000017c0      0x3a8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .debug_loc     0x0000000000001b68      0x1dc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .debug_loc     0x0000000000001d44      0xf94 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .debug_loc     0x0000000000002cd8      0x714 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .debug_loc     0x00000000000033ec      0x5f4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .debug_loc     0x00000000000039e0      0x2d4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .debug_loc     0x0000000000003cb4       0xf8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .debug_loc     0x0000000000003dac      0xc20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .debug_loc     0x00000000000049cc      0x9d0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .debug_loc     0x000000000000539c      0x1ec /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .debug_loc     0x0000000000005588      0x2b6 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .debug_loc     0x000000000000583e      0x1be /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_loc     0x00000000000059fc      0x200 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .debug_loc     0x0000000000005bfc      0x1ab /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+
+.debug_aranges  0x0000000000000000      0x438
+ .debug_aranges
+                0x0000000000000000       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .debug_aranges
+                0x0000000000000020       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .debug_aranges
+                0x0000000000000040       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .debug_aranges
+                0x0000000000000060       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .debug_aranges
+                0x0000000000000080       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .debug_aranges
+                0x00000000000000a0       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .debug_aranges
+                0x00000000000000c0       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .debug_aranges
+                0x00000000000000e0       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .debug_aranges
+                0x0000000000000100       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .debug_aranges
+                0x0000000000000120       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .debug_aranges
+                0x0000000000000140       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .debug_aranges
+                0x0000000000000160       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .debug_aranges
+                0x0000000000000180       0x18 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .debug_aranges
+                0x0000000000000198       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .debug_aranges
+                0x00000000000001b8       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .debug_aranges
+                0x00000000000001d8       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .debug_aranges
+                0x00000000000001f8       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .debug_aranges
+                0x0000000000000218       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .debug_aranges
+                0x0000000000000238       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .debug_aranges
+                0x0000000000000258       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .debug_aranges
+                0x0000000000000278       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .debug_aranges
+                0x0000000000000298       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .debug_aranges
+                0x00000000000002b8       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .debug_aranges
+                0x00000000000002d8       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .debug_aranges
+                0x00000000000002f8       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .debug_aranges
+                0x0000000000000318       0x20 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .debug_aranges
+                0x0000000000000338       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .debug_aranges
+                0x0000000000000358       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_aranges
+                0x0000000000000378       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .debug_aranges
+                0x0000000000000398       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .debug_aranges
+                0x00000000000003b8       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .debug_aranges
+                0x00000000000003d8       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .debug_aranges
+                0x00000000000003f8       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .debug_aranges
+                0x0000000000000418       0x20 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+
+.debug_line     0x0000000000000000     0x7d92
+ .debug_line    0x0000000000000000      0x256 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .debug_line    0x0000000000000256      0x390 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .debug_line    0x00000000000005e6      0x5ab /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .debug_line    0x0000000000000b91      0x43c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .debug_line    0x0000000000000fcd      0x576 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .debug_line    0x0000000000001543      0x310 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .debug_line    0x0000000000001853      0x1a6 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .debug_line    0x00000000000019f9      0x622 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .debug_line    0x000000000000201b      0x4fd /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .debug_line    0x0000000000002518      0x2da /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .debug_line    0x00000000000027f2      0x34e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .debug_line    0x0000000000002b40      0xdbc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .debug_line    0x00000000000038fc      0x292 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .debug_line    0x0000000000003b8e      0x3e0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .debug_line    0x0000000000003f6e      0xabe /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .debug_line    0x0000000000004a2c      0x273 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .debug_line    0x0000000000004c9f      0x1d0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .debug_line    0x0000000000004e6f      0xc1d /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .debug_line    0x0000000000005a8c      0x8fe /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .debug_line    0x000000000000638a      0x20c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .debug_line    0x0000000000006596      0x129 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .debug_line    0x00000000000066bf       0xb3 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .debug_line    0x0000000000006772       0xa1 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .debug_line    0x0000000000006813       0x9f /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .debug_line    0x00000000000068b2       0xa4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .debug_line    0x0000000000006956       0xc1 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .debug_line    0x0000000000006a17      0x345 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .debug_line    0x0000000000006d5c      0x36d /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_line    0x00000000000070c9      0x433 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .debug_line    0x00000000000074fc       0xe0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x00000000000075dc      0x4ff /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x0000000000007adb       0xe0 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x0000000000007bbb       0xea /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .debug_line    0x0000000000007ca5       0xed /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+
+.debug_str      0x0000000000000000     0x8c72
+ .debug_str     0x0000000000000000     0x13e0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+                                       0x1494 (size before relaxing)
+ .debug_str     0x00000000000013e0      0x5ed /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                        0x802 (size before relaxing)
+ .debug_str     0x00000000000019cd      0xb1e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                       0x1f55 (size before relaxing)
+ .debug_str     0x00000000000024eb      0x56b /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                                        0x7b4 (size before relaxing)
+ .debug_str     0x0000000000002a56     0x11a2 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                       0x176b (size before relaxing)
+ .debug_str     0x0000000000003bf8      0x13d /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+                                        0x341 (size before relaxing)
+ .debug_str     0x0000000000003d35       0xda /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+                                        0x2af (size before relaxing)
+ .debug_str     0x0000000000003e0f      0x505 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                                       0x1d29 (size before relaxing)
+ .debug_str     0x0000000000004314      0x400 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                       0x1432 (size before relaxing)
+ .debug_str     0x0000000000004714      0x3fb /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                        0xb71 (size before relaxing)
+ .debug_str     0x0000000000004b0f      0x203 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                        0x9b6 (size before relaxing)
+ .debug_str     0x0000000000004d12      0x606 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                       0x130f (size before relaxing)
+ .debug_str     0x0000000000005318       0x81 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+                                        0xbff (size before relaxing)
+ .debug_str     0x0000000000005399      0x779 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                        0xfc8 (size before relaxing)
+ .debug_str     0x0000000000005b12      0x365 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                        0xf3b (size before relaxing)
+ .debug_str     0x0000000000005e77      0x112 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+                                       0x19e8 (size before relaxing)
+ .debug_str     0x0000000000005f89      0x155 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+                                       0x1484 (size before relaxing)
+ .debug_str     0x00000000000060de      0x81e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                        0xaa0 (size before relaxing)
+ .debug_str     0x00000000000068fc      0x745 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                       0x2902 (size before relaxing)
+ .debug_str     0x0000000000007041      0x18f /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                        0xb09 (size before relaxing)
+ .debug_str     0x00000000000071d0      0x1ae /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+                                        0x629 (size before relaxing)
+ .debug_str     0x000000000000737e      0x1b9 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+                                        0x65f (size before relaxing)
+ .debug_str     0x0000000000007537      0x32a /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+                                        0x952 (size before relaxing)
+ .debug_str     0x0000000000007861     0x1411 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+                                       0x18a8 (size before relaxing)
+
+.comment        0x0000000000000000       0x2d
+ .comment       0x0000000000000000       0x2d /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+                                         0x2e (size before relaxing)
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .comment       0x000000000000002d       0x2e /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .comment       0x000000000000002d       0x2e /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .comment       0x000000000000002d       0x2e /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .comment       0x000000000000002d       0x2e /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .comment       0x000000000000002d       0x2e /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+
+.ARM.attributes
+                0x0000000000000000       0x33
+ .ARM.attributes
+                0x0000000000000000       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .ARM.attributes
+                0x0000000000000035       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .ARM.attributes
+                0x000000000000006a       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .ARM.attributes
+                0x000000000000009f       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .ARM.attributes
+                0x00000000000000d4       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .ARM.attributes
+                0x0000000000000109       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .ARM.attributes
+                0x000000000000013e       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .ARM.attributes
+                0x0000000000000173       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .ARM.attributes
+                0x00000000000001a8       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .ARM.attributes
+                0x00000000000001dd       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .ARM.attributes
+                0x0000000000000212       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .ARM.attributes
+                0x0000000000000247       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .ARM.attributes
+                0x000000000000027c       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+ .ARM.attributes
+                0x00000000000002b1       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .ARM.attributes
+                0x00000000000002e6       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .ARM.attributes
+                0x000000000000031b       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .ARM.attributes
+                0x0000000000000350       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .ARM.attributes
+                0x0000000000000385       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .ARM.attributes
+                0x00000000000003ba       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .ARM.attributes
+                0x00000000000003ef       0x35 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .ARM.attributes
+                0x0000000000000424       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+ .ARM.attributes
+                0x0000000000000449       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ .ARM.attributes
+                0x000000000000046e       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+ .ARM.attributes
+                0x0000000000000493       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+ .ARM.attributes
+                0x00000000000004b8       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+ .ARM.attributes
+                0x00000000000004dd       0x25 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+ .ARM.attributes
+                0x0000000000000502       0x30 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .ARM.attributes
+                0x0000000000000532       0x30 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x0000000000000562       0x30 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x0000000000000592       0x18 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .ARM.attributes
+                0x00000000000005aa       0x30 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x00000000000005da       0x18 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000000000005f2       0x18 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+ .ARM.attributes
+                0x000000000000060a       0x18 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+
+.debug_frame    0x0000000000000000     0x3198
+ .debug_frame   0x0000000000000000       0x4c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ .debug_frame   0x000000000000004c      0x110 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ .debug_frame   0x000000000000015c      0x220 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ .debug_frame   0x000000000000037c       0xd0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+ .debug_frame   0x000000000000044c      0x380 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+ .debug_frame   0x00000000000007cc       0xe4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+ .debug_frame   0x00000000000008b0       0x84 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+ .debug_frame   0x0000000000000934      0x224 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+ .debug_frame   0x0000000000000b58      0x274 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+ .debug_frame   0x0000000000000dcc      0x1f0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+ .debug_frame   0x0000000000000fbc       0xf8 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+ .debug_frame   0x00000000000010b4      0x8fc /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+ .debug_frame   0x00000000000019b0      0x378 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+ .debug_frame   0x0000000000001d28      0x3a4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+ .debug_frame   0x00000000000020cc      0x16c /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+ .debug_frame   0x0000000000002238       0x90 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ .debug_frame   0x00000000000022c8      0x6c4 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+ .debug_frame   0x000000000000298c      0x5c0 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+ .debug_frame   0x0000000000002f4c      0x134 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+ .debug_frame   0x0000000000003080       0x40 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+ .debug_frame   0x00000000000030c0       0x34 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00000000000030f4       0x30 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+ .debug_frame   0x0000000000003124       0x2c /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000000000003150       0x48 /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+
+Cross Reference Table
+
+Symbol                                            File
+ARM_DSB                                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/arm_a.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+ARM_ExceptDataAbortHndlr                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ARM_ExceptFiqHndlr                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ARM_ExceptIrqHndlr                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ARM_ExceptPrefetchAbortHndlr                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ARM_ExceptSwiHndlr                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ARM_ExceptUndefInstrHndlr                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+ARM_Reserved                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+BSP_Init                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+BSP_PreInit                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+BSP_SystemHalt                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+BSP_UndefAbortExceptionHook                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+CLOCK_DisablePeri                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_EnableIobus                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+CLOCK_EnablePeri                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+CLOCK_GetClkCtrlRate                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_GetPeriRate                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+CLOCK_GetPllRate                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_Init                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+CLOCK_IsIobusPwdn                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_IsPeriEnabled                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_SetClkCtrlRate                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_SetIobusPwdn                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+CLOCK_SetPeriRate                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+CLOCK_SetPllDiv                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_SetPllRate                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+CLOCK_SetSwReset                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+CPU_DSB                                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+CPU_SR_Restore                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+CPU_SR_Save                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+CPU_WaitForEvent                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+DBG_Printfi                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+DBG_Putc                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+DBG_SerialPrintf                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+ECCP_CalcCrc16                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ECCP_CheckRx                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ECCP_InitSPIManager                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ECCP_Open                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+ECCP_Recv                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+ECCP_Send                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+EFLASH_Erase                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+EFLASH_FWDN_LowFormat                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+EFLASH_FWDN_Read                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+EFLASH_FWDN_Write                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+EFLASH_Init                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+EFLASH_WriteByte                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+FWUD_Init                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+FWUD_Process                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+GDMA_ChannelDisable                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_ChannelEnable                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_GetTransferSize                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_Init                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_InterruptDisable                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+GDMA_InterruptEnable                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_Reset                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+GDMA_SetAddrIncrement                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetBurstSize                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetDestAddr                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetFlowControl                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetPeri                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetSrcAddr                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetTransferSize                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetTransferWidth                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+GDMA_SetlliAddr                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+GDMA_TransferMem2Mem                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+GDMA_WaitInterrupt                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+GIC_DeInit                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+GIC_Init                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+GIC_IntHandler                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+GIC_IntHandlerWithParam                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+GIC_IntPrioSet                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+GIC_IntSGI                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+GIC_IntSrcDis                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GIC_IntSrcEn                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GIC_IntVectSet                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GIC_SmIrqEn                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+GIC_SmIrqSetHigh                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+GPIO_Config                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPIO_Get                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+GPIO_IntExtSet                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPIO_MfioCfg                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPIO_PerichSel                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPIO_Set                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPIO_ToNum                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_AsyncXfer                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_ClearDMABuffer                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_ClearLbCfg                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_Close                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_CsActivate                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_CsAlloc                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_CsDeactivate                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_CsInit                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_Deinit                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_FillSlaveTXData                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_GetSlaveRXData                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_GetStatus                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_Init                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+GPSB_Open                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_Reset                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyDisableLock                            /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyDisableLoopback                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyDisableMonitor                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyEnableLock                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyEnableLoopback                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyEnableMonitor                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SafetyGetStatus                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SetBpw                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_SetBpwNoSwap                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SetLbCfg                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SetMode                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SetSlaveDMAMode                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+GPSB_SetSpeed                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+GPSB_Xfer                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+HSM_GetMFCERT                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+HSM_GetSecureHSM                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+HSM_GetVersion                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+HSM_Init                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+HSM_SBEnable                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+HSM_SBVerifyStop                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+HwDflash_RegisterMap                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+HwPflash_RegisterMap                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+MBOX_DevInit                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+MBOX_DevIoctl                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevOpen                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+MBOX_DevRecv                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevRecvCmd                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevRecvData                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevRecvSss                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+MBOX_DevSend                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevSendCmd                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevSendData                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_DevSendSss                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+MBOX_Init                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+MBOX_PhyBitClearCtrl                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyBitSetCtrl                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyCountMcmd                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyCountMdata                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyCountScmd                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyCountSdata                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyEmptyMcmd                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyEmptyMdata                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyEmptyScmd                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyEmptySdata                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyFullMcmd                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyFullMdata                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyFullScmd                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyFullSdata                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyGetOppTmnSts                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyGetOwnTmnSts                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyIsFlushedCmd                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyIsFlushedData                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyIsIenSet                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyIsIlevelSet                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyIsOenSet                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyReadCmd                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyReadData                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyReady                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhySetOwnTmnSts                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyWriteCmd                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MBOX_PhyWriteData                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+MPU_GetDMABaseAddress                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+MPU_Init                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+SAL_CoreCriticalEnter                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+SAL_CoreCriticalExit                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+SAL_CoreDiv64To32                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+SAL_CoreMB                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gic.o
+SAL_DbgReportError                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gdma.o
+SAL_MemCmp                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+SAL_MemCopy                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+SAL_MemSet                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+SAL_TaskSleep                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+SNOR_MIO_AutoRead                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+SNOR_MIO_Erase                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+SNOR_MIO_FWDN_LowFormat                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+SNOR_MIO_FWDN_Read                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+SNOR_MIO_FWDN_Write                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+SNOR_MIO_Init                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+SNOR_MIO_Read                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+SNOR_MIO_Read_Fast                                /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+SNOR_MIO_Write                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+STACK_BASE_ADDR                                   /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+UART_Close                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_GetChar                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_GetData                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_GetRawInterruptStatusReg                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_GetReceiveStatusReg                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_ISR                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_Init                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/bsp.o
+UART_Open                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_PutChar                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+UART_Read                                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_SetErrorClearReg                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_SetInterruptClearReg                         /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_SetLineControlReg                            /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+UART_Write                                        /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/uart.o
+__BSS_END__                                       /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__BSS_START__                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__DATA_END__                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__DATA_START_LOAD                                 /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__DATA_START__                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__RODATA_END__                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__TEXT_START__                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__VECTOR_END__                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__VECTOR_START_LOAD                               /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__VECTOR_START__                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+__aeabi_idiv0                                     /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+__aeabi_ldiv0                                     /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_dvmd_tls.o)
+                                                  /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+__aeabi_uldivmod                                  /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/clock_dev.o
+__clzdi2                                          /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+                                                  /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+__clzsi2                                          /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzsi2.o)
+                                                  /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_clzdi2.o)
+__nc_dmastart                                     /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+__udivmoddi4                                      /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_udivmoddi4.o)
+                                                  /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libgcc.a(_aeabi_uldivmod.o)
+_end_of_nc_dma                                    /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+_start                                            /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+_vector                                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+arm_irq                                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl_asm.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal.o
+cmain                                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/main.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+dbgTags                                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+gDebugOption                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/debug.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+gSNOR_MIO_ProductTable                            /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+gpsb                                              /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+gpsb_sm                                           /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+gpsbport                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb_reg.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpsb.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+mboxInfo                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_phy.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+memcmp                                            /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcmp.o)
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+memcpy                                            /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memcpy-stub.o)
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mpu.o
+memset                                            /opt/gcc-linaro-7.2.1-2017.11-x86_64_arm-eabi/arm-eabi/libc/usr/lib/libc.a(lib_a-memset.o)
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/sal_impl.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/mbox_dev.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/hsm_manager.o
+mfio_ch_cfg_flag                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/gpio.o
+reset                                             /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vector.o
+sEccpMsg                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/fwupdate.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/spi_eccp.o
+snor_mio_drv                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/snor_mio.o
+uiDataBuffer                                      /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/eflash.o
+vfp_init                                          /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/vfp_init.o
+                                                  /home/B100086/data2/WORK/TCC70xx/Bitbucket_TCC70xx_MCU_BSP/tcc70xx/tools/fw.updater/sources/build/tcc70xx/gcc/tcc70xx-freertos-debug/obj/startup.o

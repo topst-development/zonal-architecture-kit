@@ -1,0 +1,130 @@
+CSV.ON,,,,,,,,,,,,,,,,
+AUTOINDENT.ON CENTER TREE,,,,,,,,,,,,,,,,
+width 16.,,,,,,,,,,,,,,,,
+PERCMD,Address,AccessWidth,Name,Tooltip,From,To,Choices,,,,,,,,,
+TREE "RTC",,,,,,,,,,,,,,,,
+TREE "RTC Controller",,,,,,,,,,,,,,,,
+BASE 0xA0F28C00,,,,,,,,,,,,,,,,
+TEXTLINE "Auto Button"
+BUTTON "Register Dump" "Data.dump (0xA0F28C00) /DIALOG /SpotLight /NoAscii",,,,,,,,,,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+;BUTTON "Lock ALARM" 
+;(
+;    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))&(~(0x1<<1.)))
+;),,,,,,,,,,,,,,,,
+;BUTTON "UnLock ALARM" 
+;(
+;    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))|(0x1<<1.))
+;    D.S SD:(0xA0F28C04) %LE %Long ((data.long(SD:(0xA0F28C04)))|(0x1<<0.))
+;),,,,,,,,,,,,,,,,
+BUTTON "Stop and Writable" 
+(
+    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))|(0x1<<1.))
+    D.S SD:(0xA0F28C04) %LE %Long ((data.long(SD:(0xA0F28C04)))|(0x1<<0.))
+    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))|(0x1<<0.))
+    D.S SD:(0xA0F28C04) %LE %Long ((data.long(SD:(0xA0F28C04)))&(~(0x1<<15.)))
+),,,,,,,,,,,,,,,,
+BUTTON "Start and Write Lock" 
+(
+    D.S SD:(0xA0F28C04) %LE %Long ((data.long(SD:(0xA0F28C04)))|(0x1<<15.))
+    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))&(~(0x1<<0.)))
+    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))&(~(0x1<<1.)))
+),,,,,,,,,,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+BUTTON "Clear BCD data" 
+(
+    D.S SD:(0xA0F28C28) %LE %Long (0x0)
+    D.S SD:(0xA0F28C2C) %LE %Long (0x0)
+    D.S SD:(0xA0F28C30) %LE %Long (0x0)
+    D.S SD:(0xA0F28C34) %LE %Long (0x0)
+    D.S SD:(0xA0F28C38) %LE %Long (0x0)
+    D.S SD:(0xA0F28C3C) %LE %Long (0x0)
+    D.S SD:(0xA0F28C40) %LE %Long (0x0)
+),,,,,,,,,,,,,,,,
+BUTTON "Clear ALM data" 
+(
+    D.S SD:(0xA0F28C0C) %LE %Long (0x0)
+    D.S SD:(0xA0F28C10) %LE %Long (0x0)
+    D.S SD:(0xA0F28C14) %LE %Long (0x0)
+    D.S SD:(0xA0F28C18) %LE %Long (0x0)
+    D.S SD:(0xA0F28C1C) %LE %Long (0x0)
+    D.S SD:(0xA0F28C20) %LE %Long (0x0)
+    D.S SD:(0xA0F28C24) %LE %Long (0x0)
+),,,,,,,,,,,,,,,,
+BUTTON "ALM Intr Enable" 
+(
+    D.S SD:(0xA0F28C48) %LE %Long ((data.long(SD:(0xA0F28C48)))&(~(0x1<<0.)))
+    D.S SD:(0xA0F28C44) %LE %Long ((data.long(SD:(0xA0F28C44)))&(~(0x1<<3.)))
+    D.S SD:(0xA0F28C44) %LE %Long ((data.long(SD:(0xA0F28C44)))|(0x1<<0.))
+    D.S SD:(0xA0F28C08) %LE %Long (0xFF)
+    D.S SD:(0xA0F28C00) %LE %Long ((data.long(SD:(0xA0F28C00)))|(0x1<<6.))
+),,,,,,,,,,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+,0x00,32.,RTCCON,RTC Control Register,,,,,,,,,,,,
+,,,AIOUTEN,<R/W> [6] Alarm Interrupt Output Enable,6.,6.,'Disable,Enable',,,,,,,,
+,,,OSCEN,<R/W> [5] Oscillator and Divider circuit test enable bit,5.,5.,'Disable,Enable',,,,,,,,
+,,,CLKRST,<R/W> [4] RTC clock count set bit,4.,4.,'No reset,Reset',,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+,,,CNTSEL,<R/W> [3] BCD count test type set bit,3.,3.,'Merge BCD counters,Reserved',,,,,,,,
+,,,CLKSEL,<R/W> [2] BCD counter test clock set bit,2.,2.,'EXTAL1 div(1Hz),Reserved',,,,,,,,
+,,,RTCWEN,<R/W> [1] RTC write enable bit,1.,1.,'Disable,Enable',,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+,,,STARTB,<R/W> [0] RTC start bit,0.,0.,'Run,Halt',,,,,,,,
+,0x04,32.,INTCON,RTC Interrupt Control Register,,,,,,,,,,,,
+,,,PROT,<R/W> [15] Protection Enable Bit,15.,15.,'Disable,Enable',,,,,,,,
+,,,XDRV,<R/W> [13:12] XTAL I/O Drive Strength Select,12.,13.,,,,,,,,,,
+,,,FSEL,<R/W> [10:8] Divider Output Select,8.,10.,,,,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+,,,STATUS,<R/W> [2:1] User-define Status Register,1.,2.,,,,,,,,,,
+,,,INTWREN,<R/W> [0] Interrupt Block Write Enable bit,0.,0.,'Disable,Enable',,,,,,,,
+,0x08,32.,RTCALM,RTC Alarm Control Register,,,,,,,,,,,,
+,,,ALMEN,<R/W> [7] Alarm global enable bit,7.,7.,'Disable,Enable',,,,,,,,
+,,,YEAREN,<R/W> [6] Year alarm enable bit,6.,6.,'Disable,Enable',,,,,,,,
+,,,MONEN,<R/W> [5] Month alarm enable bit,5.,5.,'Disable,Enable',,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+,,,DAYEN,<R/W> [4] Day of week alarm enable bit,4.,4.,'Disable,Enable',,,,,,,,
+,,,DATEEN,<R/W> [3] Date alarm enable bit,3.,3.,'Disable,Enable',,,,,,,,
+,,,HOUREN,<R/W> [2] Hour alarm enable bit,2.,2.,'Disable,Enable',,,,,,,,
+NEWLINE,,,,,,,,,,,,,,,,
+,,,MINEN,<R/W> [1] Minute alarm enable bit,1.,1.,'Disable,Enable',,,,,,,,
+,,,SECEN,<R/W> [0] Second alarm enable bit,0.,0.,'Disable,Enable',,,,,,,,
+,0x0C,32.,ALMSEC,Alarm Second Data Register,,,,,,,,,,,,
+,,,SECDATA,<R/W> [6:0] BCD value for alarm second bits,0.,6.,,,,,,,,,,
+,0x10,32.,ALMMIN,Alarm Minute Data Register,,,,,,,,,,,,
+,,,MINDATA,<R/W> [6:0] BCD value for alarm minute bits,0.,6.,,,,,,,,,,
+,0x14,32.,ALMHOUR,Alarm Hour Data Register,,,,,,,,,,,,
+,,,HOURDATA,<R/W> [5:0] BCD value for alarm hour bits,0.,5.,,,,,,,,,,
+,0x18,32.,ALMDATE,Alarm Date Data Register,,,,,,,,,,,,
+,,,DATEDATA ,<R/W> [5:0],0.,5.,,,,,,,,,,
+,0x1C,32.,ALMDAY,Alarm Day of Week Data Register,,,,,,,,,,,,
+,,,DAYDATA,<R/W> [2:0] BCD value for alarm day bits,0.,2.,'SUN,MON,TUE,WED,THU,FRI,SAT',,,
+,0x20,32.,ALMMON,Alarm Month Data Register,,,,,,,,,,,,
+,,,MONDATA,<R/W> [4:0] BCD value for alarm month bits,0.,4.,,,,,,,,,,
+,0x24,32.,ALMYEAR,Alarm Year Data Register,,,,,,,,,,,,
+,,,YEARDATA,<R/W> [15:0] BCD value for alarm year bits,0.,15.,,,,,,,,,,
+,0x28,32.,BCDSEC,BCD Second Register,,,,,,,,,,,,
+,,,SECDATA,<R/W> [6:0] BCD value for second bits,0.,6.,,,,,,,,,,
+,0x2C,32.,BCDMIN,BCD Minute Register,,,,,,,,,,,,
+,,,MINDATA,<R/W> [6:0] BCD value for minute bits,0.,6.,,,,,,,,,,
+,0x30,32.,BCDHOUR,BCD Hour Register,,,,,,,,,,,,
+,,,HOURDATA,<R/W> [5:0] BCD value for hour bits,0.,5.,,,,,,,,,,
+,0x34,32.,BCDDATE,BCD Date Register,,,,,,,,,,,,
+,,,DATEDATA,<R/W> [5:0] BCD value for date bits (decimal: 01 to 31),0.,5.,,,,,,,,,,
+,0x38,32.,BCDDAY,BCD Day of Week Register,,,,,,,,,,,,
+,,,DAYDATA,<R/W> [2:0] BCD value for day bits,0.,2.,'SUN,MON,TUE,WED,THU,FRI,SAT',,,
+,0x3C,32.,BCDMON,BCD Month Register,,,,,,,,,,,,
+,,,MONDATA ,<R/W> [4:0] BCD value for month bits,0.,4.,,,,,,,,,,
+,0x40,32.,BCDYEAR,BCD Year Register,,,,,,,,,,,,
+,,,YEARDATA,<R/W> [15:0] BCD value for year bits,0.,15.,,,,,,,,,,
+,0x44,32.,RTCIM,RTC Interrupt Mode Register,,,,,,,,,,,,
+,,,PWDN,<R/W> [3] Operation mode selection bit,3.,3.,'Normal Mode,Power-Down Mode',,,,,,,,
+,,,WKUPMODE,<R/W> [2] Wakeup mode selection bit,2.,2.,'Active Low,Active High',,,,,,,,
+,,,INTMODE,<R/W> [1:0] Interrupt mode selection bit,0.,1.,'Disable Alarm Interrupt,Enable Edge Alarm Interrupt,Enable Level Alarm Interrupt',,,,,,,
+,0x48,32.,RTCPEND,RTC Interrupt Pending Register,,,,,,,,,,,,
+,,,PEND,<R/W> [0] Interrupt pending enable bit,0.,0.,'Cleard,Pending',,,,,,,,
+,,,,,,,,,,,,,,,,
+TREE.END,,,,,,,,,,,,,,,,
+TREE.END,,,,,,,,,,,,,,,,
+CSV.OFF,,,,,,,,,,,,,,,,

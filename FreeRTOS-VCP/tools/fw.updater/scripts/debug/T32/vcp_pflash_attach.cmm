@@ -1,0 +1,48 @@
+//================================================================ ===========
+//
+//                       Load Bootlaoder for TCC701x (R5)
+//
+//===========================================================================
+
+GLOBAL &outputPath
+GLOBAL &netSrcPath
+GLOBAL &realSrcPath
+
+//---------------------------------------------------------------------------
+// Set Environment 
+//---------------------------------------------------------------------------
+&outputPath="W:\data2\WORK\TCC70xx\Bitbucket_TCC70xx_MCU_BSP\tcc70xx\tools\fw.updater\"
+&netSrcPath="W:"
+&realSrcPath="\home\B100086"
+
+//---------------------------------------------------------------------------
+// Debugging 
+//---------------------------------------------------------------------------
+SYStem.MODE Down
+
+//Break.Delete /ALL
+
+sys.option.EnReset off
+sys.cpu CortexR5F
+sys.CONFIG.AHBACCESSPORT 0
+sys.CONFIG.DEBUGACCESSPORT 1
+
+sys.config corebase	0x80410000
+sys.mode prepare
+
+sys.m.a
+
+if run()
+	Break
+
+cd &outputPath
+d.load.elf sources\build\tcc70xx\gcc\tcc70xx-freertos-debug\boot /nocode
+
+if (("&netSrcPath"!="")&&("&realSrcPath"!=""))
+(
+	sYmbol.SourcePATH.Translate "&realSrcPath" "&netSrcPath"
+)
+
+d.l
+
+enddo
