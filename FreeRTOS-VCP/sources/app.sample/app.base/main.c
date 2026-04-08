@@ -164,6 +164,8 @@ void cmain (void)
 *
 ***************************************************************************************************
 */
+//#include "led.h"
+//#include "pdm_motor.h"
 static void Main_StartTask(void * pArg)
 {
     (void)pArg;
@@ -180,6 +182,9 @@ static void Main_StartTask(void * pArg)
         //mcu_printf("\n MCU Idle !!!");
         (void)SAL_TaskSleep(5000);
     }
+
+	//LED_Run();
+	//PDM_Motor_Run();
 }
 
 static void AppTaskCreate(void)
