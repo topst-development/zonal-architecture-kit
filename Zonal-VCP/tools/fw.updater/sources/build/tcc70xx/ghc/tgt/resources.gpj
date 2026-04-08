@@ -1,0 +1,17 @@
+#!gbuild
+#component target_resources
+[Project]
+default.con
+hpserv_standard.mbs
+mpserv_standard.mbs
+ocdserv_standard.mbs
+resource_readme.txt
+standalone_pic.ld
+standalone_picpid.ld
+standalone_pid.ld
+standalone_ram.ld
+standalone_ram_debug_tcc70xx.ld
+standalone_romcopy.ld
+standalone_romcopy_tcc70xx_snor_cs.ld
+standalone_romdebug.ld
+standalone_romrun.ld

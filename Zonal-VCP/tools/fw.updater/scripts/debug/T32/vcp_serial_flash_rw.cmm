@@ -1,0 +1,351 @@
+global &image_write_size
+global &start_offset
+global &sector_addr
+
+GLOBAL &bootRomPath
+
+//---------------------------------------------------------------------------
+// Set Environment 
+//---------------------------------------------------------------------------
+
+
+&image_write_size=0
+&start_offset=0x0
+
+//---------------------------------------------------------------------------
+// DIALOG
+//---------------------------------------------------------------------------
+WINPOS 5. 15. 44. 5. 0. 0. W001
+DIALOG
+(
+	HEADER "VCP Serial Flash Write Script"
+	icon ":mmu"
+
+	//-----------------------------------------------------
+	// Firmware Image File
+	//-----------------------------------------------------
+	POS 1. 1. 9. 1.
+	TEXT "Image File"
+
+	POS 10. 1. 30. 1.
+	IMAGEPATH: EDIT "Select a Image file" ""
+
+	POS 41. 1. 2. 1.
+	IMAGEBUTTON: BUTTON "..."
+	(
+		dialog.setfile IMAGEPATH *
+	)
+
+	POS 1. 2.5 42. 2.0
+	BT_SET_ENV: BUTTON " Image Write. "
+	(
+		system.option rb on
+		system.option.mmu off
+		system.option.enreset off
+		system.option.trst on
+		system.jtagclock 10mhz
+
+		sys.cpu CortexR5
+		sys.CONFIG.DEBUGACCESSPORT 1
+		sys.CONFIG.AHBACCESSPORT 0
+		sys.config corebase	0x80410000
+		SYStem.M attach
+
+		SYStem.MODE Prepare
+		//D.S EZAHB:0x14400014 %LE %Long 0x02000000
+		//D.S EZAHB:0x17000004 %LE %Long 0xffffffff //SW RESET
+		//D.S EZAHB:0x1B930000 %LE %Long 0xffffffff
+		SYStem.MODE ATTACH
+		if run()
+			Break
+
+		&imagefile=dialog.string(IMAGEPATH)
+
+		//print "image file: &imagefile"
+
+		&start_time=DATE.TIME()
+
+
+		D.A SR:0x00000000 wfi
+		D.A SR:0x00000004 b 0x0
+		R.S R13 0x00000000	
+		register.set PC 0x00000000 ; set pc
+		//print "Serial Flash GPIO Port CFG"
+
+		D.S SD:0x0:0xA0F22074 %LE %Long 0x11110000
+		D.S SD:0x0:0xA0F22078 %LE %Long 0x00001111    //FUNC
+		D.S SD:0x0:0xA0F22064 %LE %Long 0xFFFFFFFF		//IEN
+		D.S SD:0x0:0xA0F22044 %LE %Long 0x00000fff		//EN		
+		D.S SD:0x0:0xA0F2205C %LE %Long 0x000FF4ff		//PE
+		D.S SD:0x0:0xA0F22060 %LE %Long 0x000FF4ff		//PS		
+		
+		
+
+		//  *(volatile unsigned int *)(SFMC_REG_MODE) = SFMC_REG_MODE_FLASH_RESET;      
+		D.S SD:0x0:0xA0F00024 %LE %Long 0x00000001 
+		D.S SD:0x0:0xA0F00028 %LE %Long 0x00040230
+		D.S SD:0x0:0xA0F0002C %LE %Long 0x00000500 
+
+		//print "Serial Flash CMD Setting"
+
+
+		//READ ID
+		D.S SD:0x0:0xA0F00904 %LE %Long 0x8400009F
+		D.S SD:0x0:0xA0F00908 %LE %Long 0x20004000
+		D.S SD:0x0:0xA0F0090C %LE %Long 0xF4000000
+		//READ STATUS REG
+		D.S SD:0x0:0xA0F00910 %LE %Long 0x84000005
+		D.S SD:0x0:0xA0F00914 %LE %Long 0x20004000
+		D.S SD:0x0:0xA0F00918 %LE %Long 0xF4000000
+		//READ CONFIG REG
+		D.S SD:0x0:0xA0F0091C %LE %Long 0x84000015
+		D.S SD:0x0:0xA0F00920 %LE %Long 0x20004000
+		D.S SD:0x0:0xA0F00924 %LE %Long 0xF4000000
+		//WRITE STATUS REG
+		D.S SD:0x0:0xA0F00928 %LE %Long 0x84000001
+		D.S SD:0x0:0xA0F0092C %LE %Long 0xA4000040
+		D.S SD:0x0:0xA0F00930 %LE %Long 0xF4000000
+		//WRITE ENABLE
+		D.S SD:0x0:0xA0F00934 %LE %Long 0xA4000006
+		D.S SD:0x0:0xA0F00938 %LE %Long 0xF4000000
+		//WRITE DISABLE
+		D.S SD:0x0:0xA0F0093C %LE %Long 0x84000004
+		D.S SD:0x0:0xA0F00940 %LE %Long 0xF4000000
+		//WRITE EAR
+		D.S SD:0x0:0xA0F00944 %LE %Long 0x40002040
+		D.S SD:0x0:0xA0F00948 %LE %Long 0xF4000000
+		//READ - 3BYTE MODE
+		D.S SD:0x0:0xA0F0094C %LE %Long 0x8400000B
+		D.S SD:0x0:0xA0F00950 %LE %Long 0x48000001
+		D.S SD:0x0:0xA0F00954 %LE %Long 0x44001000
+		D.S SD:0x0:0xA0F00958 %LE %Long 0x28000000
+		D.S SD:0x0:0xA0F0095C %LE %Long 0xF4000000
+		//PROGRAM - 3BYTE MODE
+		D.S SD:0x0:0xA0F00960 %LE %Long 0x84000002
+		D.S SD:0x0:0xA0F00964 %LE %Long 0x8C000000
+		D.S SD:0x0:0xA0F00968 %LE %Long 0x60100000
+		D.S SD:0x0:0xA0F0096C %LE %Long 0xF4000000
+		//SECTOR ERASE - 3BYTE MODE
+		D.S SD:0x0:0xA0F00970 %LE %Long 0x84000020
+		D.S SD:0x0:0xA0F00974 %LE %Long 0xAC000000
+		D.S SD:0x0:0xA0F00978 %LE %Long 0xF4000000
+		//BLOCK ERASE - 3BYTE MODE
+		D.S SD:0x0:0xA0F0097C %LE %Long 0x840000D8
+		D.S SD:0x0:0xA0F00980 %LE %Long 0xAC000000
+		D.S SD:0x0:0xA0F00984 %LE %Long 0xF4000000
+		//READ FAST - 3BYTE MODE
+		D.S SD:0x0:0xA0F00988 %LE %Long 0x840000EB
+		D.S SD:0x0:0xA0F0098C %LE %Long 0x4A000001
+		D.S SD:0x0:0xA0F00990 %LE %Long 0x86000000
+		D.S SD:0x0:0xA0F00994 %LE %Long 0x46002000
+		D.S SD:0x0:0xA0F00998 %LE %Long 0x2A000000
+		D.S SD:0x0:0xA0F0099C %LE %Long 0xF4000000
+		// Set CMD end
+
+
+		D.S SD:0x0:0xA0F00010 %LE %Long 0x00000033 	// CMD RUN
+
+		//=======================================================
+		// Write Enable
+		//=======================================================
+		//print "	+Write Enable"
+		//print "	"
+		D.S SD:0x0:0xA0F0001C %LE %Long 0x00000934 	// Set Manual Addr
+		D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+		&cmd_reg=data.long(R:0xA0F00010)
+		while &cmd_reg!=0x0
+		(
+			&cmd_reg=data.long(R:0xA0F00010)
+			&cmd_reg=&cmd_reg&0xF
+		)
+		//print "	-Write Enable"
+
+		//=======================================================
+		// QUAD Enable
+		//=======================================================
+		//print "	+QUAD Enable"
+		//print "	"
+		D.S SD:0x0:0xA0F0001C %LE %Long 0x00000928 	// Set Manual Addr
+		D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+		&cmd_reg=data.long(R:0xA0F00010)
+		while &cmd_reg!=0x0
+		(
+			&cmd_reg=data.long(R:0xA0F00010)
+			&cmd_reg=&cmd_reg&0xF
+		)
+
+
+
+		// Auto Read mode enable
+		//D.S SD:0x0:0xA0F00020 %LE %Long 0x0000094c 	// Set CMD_AUTO_ADDR
+		//D.S SD:0x0:0xA0F00010 %LE %Long 0x00000010 	// CMD RUN
+
+			
+		&imagefile_size=OS.FILE.SIZE(&imagefile)
+		
+		//print "image file size: &imagefile_size byte"
+
+		&sector_size=0x1000
+
+		&erase_count=(&imagefile_size+&start_offset+&sector_size-1)/&sector_size
+		&erase_size=&erase_count*&sector_size
+		if &imagefile_size>&erase_size
+		(
+			&erase_count=&erase_count+1
+		)
+		
+		//=======================================================
+		//Erase Sector 
+		//=======================================================
+		//print "----------------------------------------"
+		//print "Erase Sector Num: &erase_count"
+		//print "----------------------------------------"
+		
+		&sector_addr=&start_offset
+
+		while &erase_count!=0x0
+		(
+			//=======================================================
+			// Write Enable
+			//=======================================================
+			//print "	+Write Enable"
+			//print "	"
+			D.S SD:0x0:0xA0F0001C %LE %Long 0x00000934 	// Set Manual Addr
+			D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+			&cmd_reg=data.long(R:0xA0F00010)
+			while &cmd_reg!=0x0
+			(
+				print %CONTinue "	+"
+				&cmd_reg=data.long(R:0xA0F00010)
+				&cmd_reg=&cmd_reg&0xF
+			)
+			//print "	-Write Enable"
+		
+			//=======================================================
+			// Erase CMD Set
+			//=======================================================
+			//print "	+Erase Sector: &sector_addr"
+			//print "	"
+			D.S SD:0x0:0xA0F0001C %LE %Long 0x00000970 	// Set Manual Addr
+			&cmd_reg=data.long(R:0xA0F00974)
+			&cmd_reg=&cmd_reg&0xFF000000
+			&cmd_reg=&cmd_reg|(&sector_addr&0x00FFFFFF)
+			D.S SD:0x0:0xA0F00974 %LE %Long &cmd_reg	// Set erase Sector addr
+			D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+			&cmd_reg=data.long(R:0xA0F00010)
+			while &cmd_reg!=0x0
+			(
+				//print %CONTinue "	+"
+				&cmd_reg=data.long(R:0xA0F00010)
+				&cmd_reg=&cmd_reg&0xF
+			)
+			//print "	-Erase Sector"
+
+			//=======================================================
+			// Wait Complete
+			//=======================================================			
+			//print "	+Wait Complete"
+			//print "	"
+			&status=0x1
+			while &status!=0x0
+			(
+				D.S SD:0x0:0xA0F0001C %LE %Long 0x00000910 	// Set Manual Addr
+				D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+				&cmd_reg=data.long(R:0xA0F00010)
+				while &cmd_reg!=0x0
+				(
+					print %CONTinue "	+"
+					&cmd_reg=data.long(R:0xA0F00010)
+					&cmd_reg=&cmd_reg&0xF
+				)
+				
+				&status=data.long(R:0xA0F00800)
+				&status=&status&0x1
+			)
+			//print "	-Wait Complete: OK"
+			
+			&erase_count=&erase_count-1
+			&sector_addr=&sector_addr+&sector_size
+		)
+
+		//=======================================================
+		//Write Sector 
+		//=======================================================
+		&write_size=0x100
+		&image_fd_offset=0x0
+		&imagetotal_size=&imagefile_size
+		&sector_addr=&start_offset
+
+		while &imagetotal_size!=0x0
+		(
+			if &write_size>&imagetotal_size
+			(
+				&image_write_size=&imagetotal_size
+			)
+			else
+			(
+				&image_write_size=&write_size
+			)
+							
+			//=======================================================
+			// Write Enable
+			//=======================================================
+			D.S SD:0x0:0xA0F0001C %LE %Long 0x00000934 	// Set Manual Addr
+			D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+			&cmd_reg=data.long(R:0xA0F00010)
+			while &cmd_reg!=0x0
+			(
+				&cmd_reg=data.long(R:0xA0F00010)
+				&cmd_reg=&cmd_reg&0xF
+			)
+			
+			//=======================================================
+			// Write 
+			//=======================================================			
+			//print " +write: &image_write_size byte (remain: &imagetotal_size byte)"
+			Data.LOAD.Binary "&imagefile" 0xA0F00800++0xFF /skip &image_fd_offset
+			
+			D.S SD:0x0:0xA0F0001C %LE %Long 0x00000960 	// Set Manual Addr
+			&cmd_reg=data.long(R:0xA0F00964)
+			&cmd_reg=&cmd_reg&0xFF000000
+			&cmd_reg=&cmd_reg|(&sector_addr&0x00FFFFFF)
+			D.S SD:0x0:0xA0F00964 %LE %Long &cmd_reg	// Sector Addr
+			D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+			&cmd_reg=data.long(R:0xA0F00010)
+			while &cmd_reg!=0x0
+			(
+				&cmd_reg=data.long(R:0xA0F00010)
+				&cmd_reg=&cmd_reg&0xF
+			)	
+			
+			//=======================================================
+			// Wait Complete
+			//=======================================================			
+			&status=0x1
+			while &status!=0x0
+			(
+				D.S SD:0x0:0xA0F0001C %LE %Long 0x00000910 	// Set Manual Addr
+				D.S SD:0x0:0xA0F00010 %LE %Long 0x00000001 	// CMD RUN
+				&cmd_reg=data.long(R:0xA0F00010)
+				while &cmd_reg!=0x0
+				(
+					&cmd_reg=data.long(R:0xA0F00010)
+					&cmd_reg=&cmd_reg&0xF
+				)
+				
+				&status=data.long(R:0xA0F00800)
+				&status=&status&0x1
+			)
+			
+			&image_fd_offset=&image_fd_offset+&image_write_size
+			&imagetotal_size=&imagetotal_size-&image_write_size
+			&sector_addr=&sector_addr+&image_write_size
+		)
+
+		print "write started at &start_time"
+		print "write completed at " DATE.TIME()
+	)	
+	
+)
+
+

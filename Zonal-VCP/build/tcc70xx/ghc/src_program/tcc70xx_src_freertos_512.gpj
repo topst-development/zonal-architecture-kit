@@ -1,0 +1,313 @@
+#!gbuild
+[Program]
+	-I.\..\..\..\..\sources\app.drivers\hsm
+	-I.\..\..\..\..\sources\app.drivers\hsm\tcc70xx
+	-I.\..\..\..\..\sources\app.drivers\lin
+	-I.\..\..\..\..\sources\app.drivers\lin\tcc70xx
+	-I.\..\..\..\..\sources\app.drivers\swl
+	-I.\..\..\..\..\sources\app.drivers\swl\tcc70xx
+	-I.\..\..\..\..\sources\app.sample\app.base
+	-I.\..\..\..\..\sources\app.sample\app.base\tcc70xx
+	-I.\..\..\..\..\sources\app.sample\app.can.demo
+	-I.\..\..\..\..\sources\app.sample\app.console
+	-I.\..\..\..\..\sources\app.sample\app.fw.update
+	-I.\..\..\..\..\sources\app.sample\app.idle
+	-I.\..\..\..\..\sources\app.sample\app.iperf
+	-I.\..\..\..\..\sources\app.sample\app.key
+	-I.\..\..\..\..\sources\app.sample\app.key.demo
+	-I.\..\..\..\..\sources\app.sample\app.spi.led
+	-I.\..\..\..\..\sources\app.sample\test.app.adc
+	-I.\..\..\..\..\sources\app.sample\test.app.audio
+	-I.\..\..\..\..\sources\app.sample\test.app.can
+	-I.\..\..\..\..\sources\app.sample\test.app.cpu
+	-I.\..\..\..\..\sources\app.sample\test.app.dse
+	-I.\..\..\..\..\sources\app.sample\test.app.eflash
+	-I.\..\..\..\..\sources\app.sample\test.app.eth
+	-I.\..\..\..\..\sources\app.sample\test.app.fmu
+	-I.\..\..\..\..\sources\app.sample\test.app.gdma
+	-I.\..\..\..\..\sources\app.sample\test.app.gic
+	-I.\..\..\..\..\sources\app.sample\test.app.gpio
+	-I.\..\..\..\..\sources\app.sample\test.app.gpsb
+	-I.\..\..\..\..\sources\app.sample\test.app.hsm
+	-I.\..\..\..\..\sources\app.sample\test.app.i2c
+	-I.\..\..\..\..\sources\app.sample\test.app.ictc
+	-I.\..\..\..\..\sources\app.sample\test.app.lin
+	-I.\..\..\..\..\sources\app.sample\test.app.pdm
+	-I.\..\..\..\..\sources\app.sample\test.app.pmu
+	-I.\..\..\..\..\sources\app.sample\test.app.rtc
+	-I.\..\..\..\..\sources\app.sample\test.app.sfmc
+	-I.\..\..\..\..\sources\app.sample\test.app.socket
+	-I.\..\..\..\..\sources\app.sample\test.app.spu
+	-I.\..\..\..\..\sources\app.sample\test.app.timer
+	-I.\..\..\..\..\sources\app.sample\test.app.uart
+	-I.\..\..\..\..\sources\app.sample\test.app.wdt
+	-I.\..\..\..\..\sources\app.sample\test.app.writelock
+	-I.\..\..\..\..\sources\core
+	-I.\..\..\..\..\sources\dev.drivers\adc
+	-I.\..\..\..\..\sources\dev.drivers\adc\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\can
+	-I.\..\..\..\..\sources\dev.drivers\can\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\clock
+	-I.\..\..\..\..\sources\dev.drivers\clock\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\common
+	-I.\..\..\..\..\sources\dev.drivers\common\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\dse
+	-I.\..\..\..\..\sources\dev.drivers\dse\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\eflash
+	-I.\..\..\..\..\sources\dev.drivers\eflash\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\eth
+	-I.\..\..\..\..\sources\dev.drivers\fmu
+	-I.\..\..\..\..\sources\dev.drivers\fmu\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\gdma
+	-I.\..\..\..\..\sources\dev.drivers\gdma\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\gic
+	-I.\..\..\..\..\sources\dev.drivers\gic\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\gpio
+	-I.\..\..\..\..\sources\dev.drivers\gpio\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\gpsb
+	-I.\..\..\..\..\sources\dev.drivers\gpsb\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\i2c
+	-I.\..\..\..\..\sources\dev.drivers\i2c\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\i2s
+	-I.\..\..\..\..\sources\dev.drivers\ictc
+	-I.\..\..\..\..\sources\dev.drivers\ictc\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\mailbox
+	-I.\..\..\..\..\sources\dev.drivers\mailbox\common
+	-I.\..\..\..\..\sources\dev.drivers\mailbox\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\midf
+	-I.\..\..\..\..\sources\dev.drivers\midf\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\mpu
+	-I.\..\..\..\..\sources\dev.drivers\mpu\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\pdm
+	-I.\..\..\..\..\sources\dev.drivers\pdm\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\pmio
+	-I.\..\..\..\..\sources\dev.drivers\pmio\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\pmu
+	-I.\..\..\..\..\sources\dev.drivers\pmu\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\preload
+	-I.\..\..\..\..\sources\dev.drivers\preload\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\rtc
+	-I.\..\..\..\..\sources\dev.drivers\rtc\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\sfmc
+	-I.\..\..\..\..\sources\dev.drivers\sfmc\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\spu
+	-I.\..\..\..\..\sources\dev.drivers\spu\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\ssm
+	-I.\..\..\..\..\sources\dev.drivers\ssm\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\timer
+	-I.\..\..\..\..\sources\dev.drivers\uart
+	-I.\..\..\..\..\sources\dev.drivers\uart\tcc70xx
+	-I.\..\..\..\..\sources\dev.drivers\watchdog
+	-I.\..\..\..\..\sources\dev.drivers\watchdog\tcc70xx
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Kernel
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Kernel\include
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Kernel\portable\ARM_CR5
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Kernel\portable\MemMang
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Plus-TCP
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Plus-TCP\include
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Plus-TCP\portable\BufferManagement
+	-I.\..\..\..\..\sources\os\freertos\FreeRTOS-Plus-TCP\portable\NetworkInterface
+	-I.\..\..\..\..\sources\sal
+	-I.\..\..\..\..\sources\sal\sal_freertos
+	--gnu_asm
+	{optgroup=GhsCommonOptions} -o ghc-freertos\boot
+	-preprocess_assembly_files
+	-D__func__=__FUNCTION__
+	-DLOADCODE_SIZE=0x1000
+	-DDMA_NC_SIZE=0x4000
+	-DCAN_NC_SIZE=0x2000
+	-DSRAM_TOTAL_SIZE=0x80000
+	-DARM_STACK_SIZE=0x680
+	-object_dir=ghc-freertos\obj
+	-cpu=cortexr5f
+	-DPFLASH_STANDALONE
+	-DOS_FREERTOS
+	:postexecShellSafe='mkrom.bat freertos'
+	-DFMU_DRIVER
+	-DDEBUG_ENABLE=1
+	-D__MPU_ENABLED__
+	-DMCU_BSP_SUPPORT_DRIVER_CLOCK=1
+	-DMCU_BSP_SUPPORT_DRIVER_GIC=1
+	-DMCU_BSP_SUPPORT_DRIVER_GPIO=1
+	-DMCU_BSP_SUPPORT_DRIVER_MPU=1
+	-DMCU_BSP_SUPPORT_DRIVER_PMIO=1
+	-DMCU_BSP_SUPPORT_DRIVER_TIMER=1
+	-DMCU_BSP_SUPPORT_DRIVER_ADC=1
+	-DMCU_BSP_SUPPORT_DRIVER_CAN=1
+	-DMCU_BSP_SUPPORT_DRIVER_DSE=1
+	-DMCU_BSP_SUPPORT_DRIVER_EFLASH=1
+	-DMCU_BSP_SUPPORT_DRIVER_ETH=1
+	-DMCU_BSP_SUPPORT_DRIVER_FMU=1
+	-DMCU_BSP_SUPPORT_DRIVER_GDMA=1
+	-DMCU_BSP_SUPPORT_DRIVER_GPSB=1
+	-DMCU_BSP_SUPPORT_DRIVER_HSM=1
+	-DMCU_BSP_SUPPORT_DRIVER_I2C=1
+	-DMCU_BSP_SUPPORT_DRIVER_I2S=1
+	-DMCU_BSP_SUPPORT_DRIVER_ICTC=1
+	-DMCU_BSP_SUPPORT_DRIVER_LIN=1
+	-DMCU_BSP_SUPPORT_DRIVER_MBOX=1
+	-DMCU_BSP_SUPPORT_DRIVER_MIDF=1
+	-DMCU_BSP_SUPPORT_DRIVER_PRELOAD=1
+	-DMCU_BSP_SUPPORT_DRIVER_PDM=1
+	-DMCU_BSP_SUPPORT_DRIVER_PMIO=1
+	-DMCU_BSP_SUPPORT_DRIVER_PMU=1
+	-DMCU_BSP_SUPPORT_DRIVER_RTC=1
+	-DMCU_BSP_SUPPORT_DRIVER_SFMC=1
+	-DMCU_BSP_SUPPORT_DRIVER_SPU=1
+	-DMCU_BSP_SUPPORT_DRIVER_SSM=1
+	-DMCU_BSP_SUPPORT_DRIVER_SWL=1
+	-DMCU_BSP_SUPPORT_DRIVER_UART=1
+	-DMCU_BSP_SUPPORT_DRIVER_WATCHDOG=1
+	-DMCU_BSP_SUPPORT_APP_BASE=1
+	-DMCU_BSP_SUPPORT_CAN_DEMO=1
+	-DMCU_BSP_SUPPORT_APP_CONSOLE=1
+	-DCONSOLE_HISTORY_ENABLE
+	-DMCU_BSP_SUPPORT_APP_FW_UPDATE=1
+	-DMCU_BSP_SUPPORT_APP_IDLE=1
+	-DMCU_BSP_SUPPORT_APP_IPERF=1
+	-DMCU_BSP_SUPPORT_APP_KEY_DEMO=0
+	-DMCU_BSP_SUPPORT_APP_KEY=1
+	-DMCU_BSP_SUPPORT_APP_SPI_LED=1
+	-DMCU_BSP_SUPPORT_TEST_APP_ADC=0
+	-DMCU_BSP_SUPPORT_TEST_APP_AUDIO=1
+	-DMCU_BSP_SUPPORT_TEST_APP_AUDIO_DEMO=1
+	-DMCU_BSP_SUPPORT_TEST_APP_CPU=1
+	-DMCU_BSP_SUPPORT_TEST_APP_DSE=1
+	-DMCU_BSP_SUPPORT_TEST_APP_EFLASH=1
+	-DMCU_BSP_SUPPORT_APP_SAMPLE_ETH=1
+	-DMCU_BSP_SUPPORT_TEST_APP_FMU=1
+	-DMCU_BSP_SUPPORT_TEST_APP_GDMA=1
+	-DMCU_BSP_SUPPORT_TEST_APP_GIC=1
+	-DMCU_BSP_SUPPORT_TEST_APP_GPIO=1
+	-DMCU_BSP_SUPPORT_TEST_APP_GPSB=1
+	-DMCU_BSP_SUPPORT_TEST_APP_HSM=1
+	-DMCU_BSP_SUPPORT_TEST_APP_I2C=1
+	-DMCU_BSP_SUPPORT_TEST_APP_ICTC=1
+	-DMCU_BSP_SUPPORT_TEST_APP_LIN=1
+	-DMCU_BSP_SUPPORT_TEST_APP_PDM=1
+	-DMCU_BSP_SUPPORT_TEST_APP_PMU=1
+	-DMCU_BSP_SUPPORT_TEST_APP_RTC=1
+	-DMCU_BSP_SUPPORT_TEST_APP_SFMC=1
+	-DMCU_BSP_SUPPORT_TEST_APP_SOCKET=1
+	-DMCU_BSP_SUPPORT_TEST_APP_SPU=1
+	-DMCU_BSP_SUPPORT_TEST_APP_TIMER=1
+	-DMCU_BSP_SUPPORT_TEST_APP_UART=1
+	-DMCU_BSP_SUPPORT_TEST_APP_WDT=1
+	-DMCU_BSP_SUPPORT_TEST_APP_WRITEBACK=1
+	-DMCU_BSP_SUPPORT_TEST_APP_PMIO=1
+
+	-O0
+	-DFPU_D16
+..\build\tcc70xx\ghc\tgt\standalone_romcopy_tcc70xx_snorwithPreload.ld
+app.drivers\hsm\tcc70xx\hsm_manager.c
+app.drivers\lin\lin.c
+app.drivers\swl\tcc70xx\swl.c
+app.sample\app.base\main.c
+app.sample\app.can.demo\can_demo.c
+app.sample\app.console\console.c
+app.sample\app.fw.update\fwupdate.c
+app.sample\app.idle\idle.c
+app.sample\app.iperf\iperf_task_v3_0d.c
+app.sample\app.key.demo\key_demo_adc.c
+app.sample\app.key\key.c
+app.sample\app.key\key_adc.c
+app.sample\app.key\key_gpio.c
+app.sample\app.key\key_i2c.c
+app.sample\app.spi.led\spi_led.c
+app.sample\test.app.adc\adc_test.c
+app.sample\test.app.audio\audio_chip_veri.c
+app.sample\test.app.audio\audio_test.c
+app.sample\test.app.audio\wm8731.c
+app.sample\test.app.audio\wm8904.c
+app.sample\test.app.cpu\cpu_test.c
+app.sample\test.app.dse\dse_test.c
+app.sample\test.app.eflash\eflash_test.c
+app.sample\test.app.eth\eth_test.c
+app.sample\test.app.fmu\fmu_test.c
+app.sample\test.app.gdma\gdma_ip_test.c
+app.sample\test.app.gdma\gdma_test.c
+app.sample\test.app.gic\gic_test.c
+app.sample\test.app.gpio\gpio_test.c
+app.sample\test.app.gpsb\gpsb_test.c
+app.sample\test.app.hsm\hsm_test.c
+app.sample\test.app.i2c\i2c_test.c
+app.sample\test.app.ictc\ictc_test.c
+app.sample\test.app.lin\lin_test.c
+app.sample\test.app.pdm\pdm_test.c
+app.sample\test.app.pmu\pmu_test.c
+app.sample\test.app.rtc\rtc_test.c
+app.sample\test.app.socket\echo_test.c
+app.sample\test.app.sfmc\sfmc_test.c
+app.sample\test.app.spu\spu_test.c
+app.sample\test.app.timer\timer_test.c
+app.sample\test.app.uart\uart_test.c
+app.sample\test.app.wdt\wdt_test.c
+app.sample\test.app.writelock\writelock_test.c
+core\GHC\arm_a.asm
+core\GHC\startup.asm
+core\GHC\vector.asm
+core\GHC\vfp_init.asm
+dev.drivers\adc\tcc70xx\adc.c
+dev.drivers\can\tcc70xx\can_porting.c
+dev.drivers\can\can.c
+dev.drivers\can\can_drv.c
+dev.drivers\can\can_msg.c
+dev.drivers\can\can_par.c
+dev.drivers\clock\tcc70xx\clock_dev.c
+dev.drivers\common\tcc70xx\bsp.c
+dev.drivers\common\debug.c
+dev.drivers\dse\tcc70xx\dse.c
+dev.drivers\eflash\tcc70xx\eflash.c
+dev.drivers\eth\eth.c
+dev.drivers\eth\eth_mii.c
+dev.drivers\fmu\tcc70xx\fmu.c
+dev.drivers\gdma\tcc70xx\gdma.c
+dev.drivers\gic\tcc70xx\gic.c
+dev.drivers\gpio\tcc70xx\gpio.c
+dev.drivers\gpsb\tcc70xx\gpsb_reg.c
+dev.drivers\gpsb\gpsb.c
+dev.drivers\i2c\tcc70xx\i2c_reg.c
+dev.drivers\i2c\i2c.c
+dev.drivers\i2s\i2s.c
+dev.drivers\ictc\ictc.c
+dev.drivers\mailbox\mbox.c
+dev.drivers\midf\tcc70xx\midf.c
+dev.drivers\mpu\tcc70xx\mpu.c
+dev.drivers\pdm\pdm.c
+dev.drivers\pmio\tcc70xx\pmio_dev.c
+dev.drivers\pmu\tcc70xx\pmu.c
+dev.drivers\preload\tcc70xx\preload.c
+dev.drivers\rtc\tcc70xx\rtc_dev.c
+dev.drivers\sfmc\tcc70xx\snor_mio.c
+dev.drivers\spu\spu.c
+dev.drivers\ssm\tcc70xx\ssm.c
+dev.drivers\timer\timer.c
+dev.drivers\uart\tcc70xx\uart.c
+dev.drivers\watchdog\wdt.c
+dev.drivers\watchdog\wdt_pmu.c
+os\freertos\FreeRTOS-Kernel\portable\ARM_CR5\GHC\freertos.asm
+os\freertos\FreeRTOS-Kernel\portable\ARM_CR5\GHC\portASM.asm
+os\freertos\FreeRTOS-Kernel\portable\ARM_CR5\port.c
+os\freertos\FreeRTOS-Kernel\portable\MemMang\heap_5.c
+os\freertos\FreeRTOS-Kernel\croutine.c
+os\freertos\FreeRTOS-Kernel\event_groups.c
+os\freertos\FreeRTOS-Kernel\list.c
+os\freertos\FreeRTOS-Kernel\queue.c
+os\freertos\FreeRTOS-Kernel\stream_buffer.c
+os\freertos\FreeRTOS-Kernel\tasks.c
+os\freertos\FreeRTOS-Kernel\timers.c
+os\freertos\FreeRTOS-Plus-TCP\portable\BufferManagement\BufferAllocation_1.c
+os\freertos\FreeRTOS-Plus-TCP\portable\NetworkInterface\board_family\NetworkInterface.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_ARP.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_DHCP.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_DNS.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_IP.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_Sockets.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_Stream_Buffer.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_TCP_IP.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_TCP_WIN.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_UDP_IP.c
+os\freertos\FreeRTOS-Plus-TCP\FreeRTOS_Port.c
+sal\sal_freertos\sal_freertos_impl.c
+sal\sal.asm
+sal\sal_api.c

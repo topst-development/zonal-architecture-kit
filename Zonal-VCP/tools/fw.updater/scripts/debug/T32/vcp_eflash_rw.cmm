@@ -1,0 +1,226 @@
+global &image_write_size
+global &start_offset
+global &sector_addr
+
+&image_write_size=0
+&start_offset=0x0
+
+//---------------------------------------------------------------------------
+// DIALOG
+//---------------------------------------------------------------------------
+WINPOS 5. 15. 44. 5. 0. 0. W001
+DIALOG
+(
+	HEADER "VCP Embeded PFlash Write Script"
+	icon ":mmu"
+
+	//-----------------------------------------------------
+	// Firmware Image File
+	//-----------------------------------------------------
+	POS 1. 1. 9. 1.
+	TEXT "Image File"
+
+	POS 10. 1. 30. 1.
+	IMAGEPATH: EDIT "Select a Image file" ""
+
+	POS 41. 1. 2. 1.
+	IMAGEBUTTON: BUTTON "..."
+	(
+		dialog.setfile IMAGEPATH *
+	)
+
+	POS 1. 2.5 42. 2.0
+	BT_SET_ENV: BUTTON " Image Write. "
+	(
+		system.option rb on
+		system.option.mmu off
+		system.option.enreset off
+		system.option.trst on
+		system.jtagclock 10mhz
+
+		sys.cpu CortexR5
+		sys.CONFIG.DEBUGACCESSPORT 1
+		sys.CONFIG.AHBACCESSPORT 0
+		sys.config corebase	0x80410000
+		SYStem.M attach
+
+		SYStem.MODE Prepare
+		
+		SYStem.MODE ATTACH
+		if run()
+			Break
+
+		&imagefile=dialog.string(IMAGEPATH)
+
+		&start_time=DATE.TIME()
+
+
+		D.A SR:0x00000000 wfi
+		D.A SR:0x00000004 b 0x0
+		R.S R13 0x00000000	
+		register.set PC 0x00000000 ; set pc
+		print "Serial Flash GPIO Port CFG"
+
+		D.S SD:0x0:0xA1000100 %LE %Long 0x001E0002
+		D.S SD:0x0:0xA1000104 %LE %Long 0x00020100		
+//		D.S SD:0x0:0xA1008030 %LE %Long 0xFFFFFFFF		
+//		D.S SD:0x0:0xA1008040 %LE %Long 0xFFFFFFFF		
+	  
+		
+
+			
+		&imagefile_size=OS.FILE.SIZE(&imagefile)
+		
+		print "image file size: &imagefile_size byte"
+
+		&sector_size=0x2000
+
+		&erase_count=(&imagefile_size+&start_offset+&sector_size-1)/&sector_size
+		&erase_size=&erase_count*&sector_size
+		if &imagefile_size>&erase_size
+		(
+			&erase_count=&erase_count+1
+		)
+
+		//=======================================================
+		//Erase Sector 
+		//=======================================================
+		//print "----------------------------------------"
+		//print "Erase Sector Num: &erase_count"
+		//print "----------------------------------------"
+
+		&sector_addr=&start_offset
+
+		while &erase_count!=0x0
+		(
+			//=======================================================
+			// Write Enable
+			//=======================================================
+			
+		
+			//=======================================================
+			// Erase CMD Set
+			//=======================================================
+			print "	+Erase Sector: &sector_addr"
+			//print "	"
+			
+			&cmd_reg=data.long(R:0xA1000004)
+			&cmd_reg=(&cmd_reg&0x40)
+			while &cmd_reg!=0
+			(
+			  &cmd_reg=data.long(R:0xA1000004)
+			  &cmd_reg=&cmd_reg&0x40
+			)
+			
+			D.S SD:0x0:0xA1000200 %LE %Long &sector_addr	// Set erase Sector addr
+			Data.set 0xA1000000 %Long 0x9
+			
+			&cmd_reg=data.long(R:0xA1000004)
+			&cmd_reg=&cmd_reg&0xf00
+			while &cmd_reg!=0   // MAT Busy Status .. Wait for 8MAT No busy
+			(
+			   &cmd_reg=data.long(R:0xA1000004)
+			   &cmd_reg=&cmd_reg&0xf00
+			)
+			
+			&cmd_reg=data.long(R:0xA1000004)
+			&cmd_reg=&cmd_reg&0x30 // CMD_RDY, AnD_RDY
+			while &cmd_reg!=0x30
+			(
+			   &cmd_reg=data.long(R:0xA1000004)
+			   &cmd_reg=&cmd_reg&0x30
+			)
+
+			//=======================================================
+			// Wait Complete
+			//=======================================================			
+			
+			print "	-Wait Complete: OK"
+			
+			&erase_count=&erase_count-1
+			&sector_addr=&sector_addr+&sector_size
+		)
+		
+		//=======================================================
+		//Write Sector 
+		//=======================================================
+		&ram_size=0x80000
+		&copy_size=&ram_size
+		&write_size=0x10
+		&image_fd_offset=0x0
+		&imagetotal_size=&imagefile_size
+		&sector_addr=&start_offset
+		&ram_pos=0
+
+		print "write start at " DATE.TIME()  
+
+		while &imagetotal_size!=0x0
+		(
+			if &imagetotal_size>&ram_size
+			(
+			    &copy_size=&ram_size
+			)
+			else
+			(
+			    &copy_size=&imagetotal_size
+			)
+		  	Data.LOAD.Binary "&imagefile" 0x0++(&copy_size-1) /skip &image_fd_offset
+		  	print "total write size &imagetotal_size"
+		  ///////////////////////////////////
+		        &ram_pos=0
+		 	while &ram_pos<&copy_size
+		 	(
+  	
+		 		&cmd_reg=data.long(R:0xA1000004)
+			&cmd_reg=&cmd_reg&0x30
+			while &cmd_reg!=0x30
+			(
+			  &cmd_reg=data.long(R:0xA1000004)
+			  &cmd_reg=&cmd_reg&0x20
+			)
+                      
+                        if &sector_addr%0x10000==0
+			(
+				print "total write size &sector_addr " DATE.TIME()
+			)
+			D.S SD:0x0:0xA1000200 %LE %Long &sector_addr	// Set write Sector addr
+				
+				
+        		data.COPY &ram_pos++0x3 0xA1000204				
+			&ram_pos=&ram_pos+4
+	      
+	     		data.COPY &ram_pos++0xB 0xA1000210						
+			&ram_pos=&ram_pos+0xc
+				
+			Data.set 0xA1000000 %Long 0x2
+				
+			&cmd_reg=data.long(R:0xA1000004)
+			&cmd_reg=&cmd_reg&0xf00
+			while &cmd_reg!=0   // MAT Busy Status .. Wait for 8MAT No busy
+			(
+			   &cmd_reg=data.long(R:0xA1000004)
+			   &cmd_reg=&cmd_reg&0xf00
+			)
+				
+			&cmd_reg=data.long(R:0xA1000004)
+			&cmd_reg=&cmd_reg&0x20 //  AnD_RDY
+			while &cmd_reg!=0x20
+			(
+			   &cmd_reg=data.long(R:0xA1000004)
+			   &cmd_reg=&cmd_reg&0x20
+			)
+	      		&sector_addr=&sector_addr+0x10	      
+				
+			)
+			
+			&imagetotal_size=&imagetotal_size-&copy_size		
+			&image_fd_offset=&image_fd_offset+&copy_size
+			
+		)
+
+		print "write started at &start_time"
+		print "write completed at " DATE.TIME()
+	)
+)
+
+

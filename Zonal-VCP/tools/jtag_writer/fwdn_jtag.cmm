@@ -1,0 +1,166 @@
+
+global &flag_addr
+global &flag_reg
+global &flag_erase
+global &flag_addroffset
+global &flag_copysize
+global &step
+
+global &start_time
+global &start_time_end
+global &ram_size
+global &image_fd_offset
+global &fwfile
+global &imagefile
+global &imagefile_size
+global &loaddata_offset
+global &boundary_check
+
+//total ram size
+&ram_size=0x80000
+
+//fwdn binary file path
+&fwfile="Z:\MICOM\VCP\vcp_git\temp\cs220613\vcp_mcu\tools\jtag_writer\fwdn.bin"
+
+//fw file path
+&imagefile="Z:\MICOM\VCP\vcp_git\temp\cs220613\vcp_mcu\sources\build\tcc70xx\gcc\output\tcc70xx_pflash_boot_3M_ECC.rom"
+//---------------------------------------------------------------------------
+// fwdn  
+//---------------------------------------------------------------------------
+SYStem.MODE Down
+
+Break.Delete /ALL
+
+sys.option.EnReset off
+sys.cpu CortexR5F
+sys.CONFIG.AHBACCESSPORT 0
+sys.CONFIG.DEBUGACCESSPORT 1
+
+sys.config corebase	0x80410000
+sys.mode prepare
+
+sys.m.a
+
+
+if run()
+	Break
+
+
+&image_fd_offset=0
+
+///////////////////do not modify bellow address
+&flag_addr=0xFff0
+&flag_erase=0xFff4
+&flag_addroffset=0xFff8
+&flag_copysize=0xFffc
+&loaddata_offset=0x10000
+
+
+&copy_size=&ram_size-&loaddata_offset
+
+D.S SD:&flag_addr %LE %Long 0
+D.S SD:&flag_erase %LE %Long 0
+D.S SD:&flag_addroffset %LE %Long 0
+
+&start_time=DATE.TIME()
+
+&imagefile_size=OS.FILE.SIZE(&imagefile)
+
+d.LOAD.binary &fwfile 0x200
+print "run   "
+register.set PC 0x00000200
+&step=0
+
+BREAK.Set ASD:0x1C4C /Program /Onchip 
+
+Go
+WAIT !STATE.RUN()
+
+GOSUB readflag
+
+
+&step=1
+
+&boundary_check=0x200000
+
+D.S SD:&flag_addr %LE %Long 0
+D.S SD:&flag_erase %LE %Long 1
+
+print " erase  done "
+
+
+while &image_fd_offset<&imagefile_size
+(
+        D.S SD:&flag_addr %LE %Long 0
+
+
+       	if &copy_size+&image_fd_offset>&boundary_check
+        (
+		&copy_size=&boundary_check-&image_fd_offset
+		&boundary_check=0x400000
+        )
+	else
+	(
+		&copy_size=&ram_size-&loaddata_offset
+	)
+
+
+        D.S SD:&flag_copysize %LE %Long &copy_size
+
+        
+
+        &tempaddr=&loaddata_offset+&copy_size-0x4
+
+	print "image offset: &image_fd_offset  copy_size: &copy_size  total_fw_size &imagefile_size"
+
+	Data.LOAD.Binary "&imagefile" &loaddata_offset++(&copy_size-1) /skip &image_fd_offset
+
+
+
+	&image_fd_offset=&image_fd_offset+&copy_size
+	register.set PC 0x00000200
+        Go
+        WAIT !STATE.RUN()
+
+        GOSUB readflag
+	
+
+)
+
+
+&start_time_end=DATE.TIME()
+
+print "write completed   &start_time_end-&start_time"
+D.S SD:0xA0F00800 %LE %Long 0x84000003
+D.S SD:0xA0F00804 %LE %Long 0x48000001
+D.S SD:0xA0F00808 %LE %Long 0x28000000
+D.S SD:0xA0F0080C %LE %Long 0xF4000000 
+D.S SD:0xA0F00020 %LE %Long 0x00000800 
+D.S SD:0xA0F00010 %LE %Long 0x00000010 
+
+
+enddo
+
+
+readflag:
+
+	&flag_reg=data.long(R:&flag_addr)
+	&flag_reg=&flag_reg&0xff
+	if &flag_reg!=0x10   
+	(
+		if &step==0
+		(
+			print "wait flag...erase   "
+		)
+		else
+		(
+			print "wait flag...write   "
+		)
+	)
+
+return
+
+
+
+//d.SAVE.b c:/t32/eflashdump.bin 0x20000000--0x201fffff
+//d.SAVE.b c:/t32/snordump.bin 0x40000000--0x401fffff

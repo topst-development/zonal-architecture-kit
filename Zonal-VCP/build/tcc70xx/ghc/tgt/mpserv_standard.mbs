@@ -1,0 +1,16 @@
+// MULTI Server Script
+// This is an empty place holder Setup Script for setting up an ARM board
+// for running programs.
+
+// Reset the processor
+
+target rst
+
+// Disable wchdog timers?
+
+// Disable the cache?
+
+// Set the speed of the internal clock?
+
+// Setup memory?
+
