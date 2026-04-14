@@ -19,7 +19,7 @@ sudo apt install -y net-tools openssh-server samba
 
 # Install Utilities
 echo "====================Install Utilities===================="
-sudo apt-get install -y gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa-dev libsdl1.2-dev pylint xterm zstd ncftp curl git-lfs vim zip lz4 repo
+sudo apt-get install -y gawk wget git diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa-dev libsdl1.2-dev pylint xterm zstd ncftp curl git-lfs vim zip lz4 repo gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
 # Setup VCP-G Environment
 echo "====================Setup VCP-G Environment===================="
