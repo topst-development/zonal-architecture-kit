@@ -44,6 +44,5 @@ pip install -r requirements.txt
 pip install torch==1.12.0+cpu torchvision==0.13.0+cpu torchaudio==0.12.0 --extra-index-url \https://download.pytorch.org/whl/cpu
 pip install ./enlight_viewer/netron-3.5.4-py2.py3-none-any.whl
 deactivate
-cd ~/
 
 echo "====================Finish setting environment===================="
