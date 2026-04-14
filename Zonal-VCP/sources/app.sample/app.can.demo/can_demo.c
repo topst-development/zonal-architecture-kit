@@ -391,7 +391,7 @@ static void CAN_DemoReceive
 
 				switch (sRxMsg.mId)
                 {
-                    case VCP_IO_BREAK_LIGHT: targetQueue = xQ_Brake;      break;
+                    case VCP_IO_BRAKE_LIGHT: targetQueue = xQ_Brake;      break;
                     case VCP_IO_MOTOR_SPEED: targetQueue = xQ_MotorSpeed; break;
                     case VCP_IO_MOTOR_WHEEL: targetQueue = xQ_MotorWheel; break;
                     case VCP_IO_EMER_SIGNAL: targetQueue = xQ_Emer;       break;
