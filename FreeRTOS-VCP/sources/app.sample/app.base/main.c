@@ -171,18 +171,6 @@ static void Main_StartTask(void * pArg)
     (void)pArg;
     (void)SAL_OsInitFuncs();
 
-    /* Service Init*/
-
-    /* Create application tasks */
-    AppTaskCreate();
-
-    while (1)
-    {  /* Task body, always written as an infinite loop.       */
-        DisplayAliveLog();
-        //mcu_printf("\n MCU Idle !!!");
-        (void)SAL_TaskSleep(5000);
-    }
-
 	//LED_Run();
 	//PDM_Motor_Run();
 }
