@@ -191,8 +191,8 @@ static void Main_StartTask(void * pArg)
     (void)SAL_OsInitFuncs();
 
     /* Service Init*/
-	MotorPWM_Init();
-	LCDSensor_Init();
+    ESC_PWM_Init();
+    LCDSensor_Init();
 
     /* Create application tasks */
     AppTaskCreate();
@@ -418,4 +418,3 @@ void VCP_CreateApp(void)
 }
 
 #endif  // ( MCU_BSP_SUPPORT_APP_BASE == 1 )
-

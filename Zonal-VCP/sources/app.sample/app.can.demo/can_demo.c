@@ -389,6 +389,13 @@ static void CAN_DemoReceive
 
 				targetQueue = NULL;
 
+                if ((ESC_IsReady() == FALSE)
+                 && ((sRxMsg.mId == VCP_IO_MOTOR_SPEED) || (sRxMsg.mId == VCP_IO_MOTOR_WHEEL)))
+                {
+                    mcu_printf("[CAN] Drop drive msg before ESC ready. ID: 0x%X\n", sRxMsg.mId);
+                    continue;
+                }
+
 				switch (sRxMsg.mId)
                 {
                     case VCP_IO_BRAKE_LIGHT: targetQueue = xQ_Brake;      break;
@@ -778,4 +785,3 @@ static void CAN_DemoTask
 }
 
 #endif  // ( MCU_BSP_SUPPORT_CAN_DEMO == 1 )
-
