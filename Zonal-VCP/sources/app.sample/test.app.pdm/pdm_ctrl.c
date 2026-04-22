@@ -11,29 +11,26 @@
 extern QueueHandle_t xQ_MotorSpeed;
 extern QueueHandle_t xQ_MotorWheel;
 
-#define VCP_DATA_READY_BIT (1 << 0)
-
 #define ESC_SEL                         0U
 #define ESC_PORT                        GPIO_PERICH_CH0
 #define ESC_PERIOD_NS                   20000000UL
 #define ESC_STOP_DUTY_NS                1000000UL
 #define ESC_MAX_DUTY_NS                 2000000UL
 #define ESC_MAX_ANGLE_FIX               (180U * 256U)
-#define ESC_ARM_RAW                     0x40U
-#define ESC_ARM_VALUE_FIX               ((uint32)ESC_ARM_RAW << 8)
+#define ESC_ARM_VALUE_FIX               ((uint32)0x40U << 8)
 #define ESC_ARM_DELAY_MS                1000U
 
 static PDMModeConfig_t esc_cfg;
 static boolean esc_inited = FALSE;
-static boolean esc_ready = FALSE;
+static ESCState_t esc_state = ESC_STATE_OFF;
 
-static void ESC_SetAngle256(uint32 angle_fix);
+static SALRetCode_t ESC_SetAngle256(uint32 angle_fix);
 
-void ESC_PWM_Init(void)
+SALRetCode_t ESC_PWM_Init(void)
 {
     if (esc_inited != FALSE)
     {
-        return;
+        return SAL_RET_SUCCESS;
     }
 
     PDM_Init();
@@ -54,33 +51,36 @@ void ESC_PWM_Init(void)
 
     if (PDM_SetConfig(ESC_SEL, &esc_cfg) != SAL_RET_SUCCESS)
     {
+        esc_state = ESC_STATE_ERROR;
         mcu_printf("ESC SetConfig fail\n");
-        return;
+        return SAL_RET_FAILED;
     }
 
     if (PDM_Enable(ESC_SEL, PMM_OFF) != SAL_RET_SUCCESS)
     {
+        esc_state = ESC_STATE_ERROR;
         mcu_printf("ESC Enable fail\n");
-        return;
+        return SAL_RET_FAILED;
     }
 
     esc_inited = TRUE;
     mcu_printf("ESC PWM Init Done\n");
+    return SAL_RET_SUCCESS;
 }
 
 boolean ESC_IsReady(void)
 {
-    return esc_ready;
+    return (esc_state == ESC_STATE_ARMED) ? TRUE : FALSE;
 }
 
-static void ESC_SetAngle256(uint32 angle_fix)
+static SALRetCode_t ESC_SetAngle256(uint32 angle_fix)
 {
     uint32 duty_ns;
     uint32 wait;
 
     if (esc_inited == FALSE)
     {
-        return;
+        return SAL_RET_FAILED;
     }
 
     if (angle_fix > ESC_MAX_ANGLE_FIX)
@@ -104,8 +104,13 @@ static void ESC_SetAngle256(uint32 angle_fix)
 
     if (PDM_SetConfig(ESC_SEL, &esc_cfg) == SAL_RET_SUCCESS)
     {
-        (void)PDM_Enable(ESC_SEL, PMM_OFF);
+        if (PDM_Enable(ESC_SEL, PMM_OFF) == SAL_RET_SUCCESS)
+        {
+            return SAL_RET_SUCCESS;
+        }
     }
+
+    return SAL_RET_FAILED;
 }
 
 void ConfigureServoPWM(uint32 channel, uint32 port, uint32 angle_deg)
@@ -161,21 +166,46 @@ void MotorSpeedTask(void *pvParameters)
 
     (void)pvParameters;
 
-    ESC_PWM_Init();
-
-    esc_ready = FALSE;
+    esc_state = ESC_STATE_INIT;
     mcu_printf("ESC Arming...\n");
-    ESC_SetAngle256(ESC_ARM_VALUE_FIX);
-    SAL_TaskSleep(ESC_ARM_DELAY_MS);
-    esc_ready = TRUE;
-    mcu_printf("ESC Ready!\n");
+
+    if (ESC_PWM_Init() != SAL_RET_SUCCESS)
+    {
+        esc_state = ESC_STATE_ERROR;
+        mcu_printf("ESC Init Failed!\n");
+    }
+    else
+    {
+        esc_state = ESC_STATE_ARMING;
+        if (ESC_SetAngle256(ESC_ARM_VALUE_FIX) != SAL_RET_SUCCESS)
+        {
+            esc_state = ESC_STATE_ERROR;
+            mcu_printf("ESC Arming Failed!\n");
+        }
+        else
+        {
+            SAL_TaskSleep(ESC_ARM_DELAY_MS);
+            esc_state = ESC_STATE_ARMED;
+            mcu_printf("ESC Ready!\n");
+        }
+    }
 
     for (;;) 
     {
         if (xQueueReceive(xQ_MotorSpeed, recvBuf, portMAX_DELAY) == pdPASS) 
         {
+            if (esc_state != ESC_STATE_ARMED)
+            {
+                continue;
+            }
+
             speed_fix = ((uint32)recvBuf[0] << 8) | (uint32)recvBuf[1];
-            ESC_SetAngle256(speed_fix);
+
+            if (ESC_SetAngle256(speed_fix) != SAL_RET_SUCCESS)
+            {
+                esc_state = ESC_STATE_ERROR;
+                mcu_printf("ESC Update Failed!\n");
+            }
         }
     }
 }

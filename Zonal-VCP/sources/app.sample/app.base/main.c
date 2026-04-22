@@ -191,7 +191,6 @@ static void Main_StartTask(void * pArg)
     (void)SAL_OsInitFuncs();
 
     /* Service Init*/
-    ESC_PWM_Init();
     LCDSensor_Init();
 
     /* Create application tasks */
