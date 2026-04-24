@@ -1,4 +1,7 @@
 TARGET = topst-nn-server
+BUILD_DIR := build
+OBJDIR := $(BUILD_DIR)/obj
+DEPDIR := $(BUILD_DIR)/dep
 
 CROSS_COMPILE = aarch64-linux-gnu-
 CC := $(CROSS_COMPILE)gcc
@@ -34,24 +37,26 @@ SRCS_C := \
 	src/main.c \
 	src/platform_api.c
 
-SRCS_CPP := inc/opencv_api.cpp
+SRCS_CPP := src/opencv_api.cpp
 
-OBJS := $(SRCS_C:.c=.o) $(SRCS_CPP:.cpp=.o)
-DEPS := $(OBJS:.o=.d)
+OBJS := $(addprefix $(OBJDIR)/,$(SRCS_C:.c=.o) $(SRCS_CPP:.cpp=.o))
+DEPS := $(addprefix $(DEPDIR)/,$(SRCS_C:.c=.d) $(SRCS_CPP:.cpp=.d))
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(OBJS) $(LIBS) -o $@
 
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(dir $@) $(dir $(DEPDIR)/$*.d)
+	$(CC) $(CFLAGS) $(INCS) -MF $(DEPDIR)/$*.d -c $< -o $@
 
-%.o: %.cpp
-	$(CXX) -x c++ $(CXXFLAGS) $(INCS) -c $< -o $@
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(dir $@) $(dir $(DEPDIR)/$*.d)
+	$(CXX) -x c++ $(CXXFLAGS) $(INCS) -MF $(DEPDIR)/$*.d -c $< -o $@
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS) $(DEPS) $(TARGET)
+	rm -rf $(BUILD_DIR) $(TARGET)
 
 -include $(DEPS)

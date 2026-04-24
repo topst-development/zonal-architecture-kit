@@ -7,20 +7,30 @@
 static void overlay_results(app_context_t *app, uint8_t *output_map_base)
 {
     static const Color_t colors[APP_MAX_MODELS] = {
-        RGB(255, 170, 40),
+        RGB(80, 255, 120),
         RGB(80, 255, 120),
     };
+    const int compact_ui = (app->display_width <= 800 || app->display_height <= 480);
+    const int left_overlay_margin = compact_ui ? 28 : 36;
+    const int right_overlay_margin = compact_ui ? -2 : 6;
+    const int perf_line_step = compact_ui ? 22 : 18;
+    const int perf_group_gap = compact_ui ? 6 : 2;
+    const int perf_column_width = compact_ui ? 125 : 200;
+    const double perf_font_size = compact_ui ? 0.4 : 0.8;
+    const double box_font_size = compact_ui ? 0.5 : 0.8;
+    const int box_label_offset = compact_ui ? 8 : 5;
+    const double cls_font_size = compact_ui ? 0.4 : 0.8;
     int i;
     int info_x;
-    int info_y = 20;
+    int info_y = compact_ui ? 40 : 36;
 
     if (output_map_base == NULL || output_map_base == MAP_FAILED) {
         return;
     }
 
-    info_x = (int)app->display_width - 280;
-    if (info_x < 16) {
-        info_x = 16;
+    info_x = (int)app->display_width - perf_column_width - right_overlay_margin;
+    if (info_x < left_overlay_margin) {
+        info_x = left_overlay_margin;
     }
 
     for (i = 0; i < APP_MAX_MODELS; ++i) {
@@ -60,7 +70,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
                             app->display_width, app->display_height,
                             (uint32_t)box_image_width,
                             (uint32_t)box_image_height,
-                            color, color, 0.8, 5);
+                            color, color, box_font_size, box_label_offset);
             }
         } else if (model->post_type == TELECHIPS_NPU_POST_CUSTOM) {
             static const Color_t lane_colors[6] = {
@@ -118,30 +128,30 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
             }
         } else if (model->post_type == TELECHIPS_NPU_POST_CLASSIFIER) {
             cvDrawCls(output_map_base, app->display_width, app->display_height,
-                      model->cls_result.class_ids[0], 12, 40 + i * 30,
-                      color, 0.8);
+                      model->cls_result.class_ids[0], left_overlay_margin, 40 + i * 30,
+                      color, cls_font_size);
         }
 
         cvDrawInfo(output_map_base, app->display_width, app->display_height,
                    DRAW_INFO_NETWORK, model->perf.elapsed_in_us / 1000.0,
-                   model->index, info_x, info_y, 0.8, color);
-        info_y += 18;
+                   model->index, info_x, info_y, perf_font_size, color);
+        info_y += perf_line_step;
         cvDrawInfo(output_map_base, app->display_width, app->display_height,
                    DRAW_INFO_NPU, model->npuUtilization,
-                   model->index, info_x, info_y, 0.8, color);
-        info_y += 18;
+                   model->index, info_x, info_y, perf_font_size, color);
+        info_y += perf_line_step + perf_group_gap;
     }
 
     cvDrawInfo(output_map_base, app->display_width, app->display_height,
                DRAW_INFO_FPS, app->perf.fps,
-               0, 12, 20, 0.8, RGB(255, 255, 255));
+               0, left_overlay_margin, compact_ui ? 40 : 36, perf_font_size, RGB(255, 255, 255));
     cvDrawInfo(output_map_base, app->display_width, app->display_height,
                DRAW_INFO_CPU, app->perf.cpuUtil[0],
-               0, info_x, info_y, 0.8, RGB(255, 255, 255));
-    info_y += 18;
+               0, info_x, info_y, perf_font_size, RGB(255, 255, 255));
+    info_y += perf_line_step;
     cvDrawInfo(output_map_base, app->display_width, app->display_height,
                DRAW_INFO_MEMORY, app->perf.memUsage,
-               0, info_x, info_y, 0.8, RGB(255, 255, 255));
+               0, info_x, info_y, perf_font_size, RGB(255, 255, 255));
 }
 
 int render_output_frame(app_context_t *app)

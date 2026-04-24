@@ -6,6 +6,8 @@
 
 #define SORT_STATE_DIM 7
 #define SORT_MEAS_DIM 4
+#define TRACK_ID_MIN 1
+#define TRACK_ID_MAX 10000
 
 typedef struct {
     int cls;
@@ -26,6 +28,48 @@ typedef struct {
     int det_idx;
     int trk_idx;
 } tracker_match_t;
+
+static int tracker_track_id_in_use(const sort_tracker_t *tracker, int track_id)
+{
+    int i;
+
+    for (i = 0; i < APP_MAX_TRACKS; ++i) {
+        const sort_track_t *track = &tracker->tracks[i];
+
+        if (track->active && track->track_id == track_id) {
+            return 1;
+        }
+    }
+
+    return 0;
+}
+
+static int tracker_allocate_track_id(sort_tracker_t *tracker)
+{
+    int attempts;
+    int candidate = tracker->next_track_id;
+
+    if (candidate < TRACK_ID_MIN || candidate > TRACK_ID_MAX) {
+        candidate = TRACK_ID_MIN;
+    }
+
+    for (attempts = 0; attempts < TRACK_ID_MAX; ++attempts) {
+        if (!tracker_track_id_in_use(tracker, candidate)) {
+            tracker->next_track_id = candidate + 1;
+            if (tracker->next_track_id > TRACK_ID_MAX) {
+                tracker->next_track_id = TRACK_ID_MIN;
+            }
+            return candidate;
+        }
+
+        candidate++;
+        if (candidate > TRACK_ID_MAX) {
+            candidate = TRACK_ID_MIN;
+        }
+    }
+
+    return 0;
+}
 
 static float tracker_maxf(float a, float b)
 {
@@ -312,6 +356,11 @@ static void tracker_kalman_update(sort_track_t *track, const tracker_detection_t
 static void tracker_spawn(sort_tracker_t *tracker, const tracker_detection_t *det)
 {
     int i;
+    int track_id = tracker_allocate_track_id(tracker);
+
+    if (track_id < TRACK_ID_MIN) {
+        return;
+    }
 
     for (i = 0; i < APP_MAX_TRACKS; ++i) {
         sort_track_t *track = &tracker->tracks[i];
@@ -322,7 +371,7 @@ static void tracker_spawn(sort_tracker_t *tracker, const tracker_detection_t *de
 
         memset(track, 0, sizeof(*track));
         track->active = 1;
-        track->track_id = tracker->next_track_id++;
+        track->track_id = track_id;
         track->cls = det->cls;
         track->score = det->score;
         track->cx = det->cx;
@@ -578,7 +627,7 @@ static void tracker_publish_results(model_context_t *model, const sort_tracker_t
 
         tracker_bbox_from_track(track, &x1, &y1, &x2, &y2);
         out = &model->tracked_result.objects[model->tracked_result.count++];
-        out->track_id = track->track_id + 1;
+        out->track_id = track->track_id;
         out->cls = track->cls;
         out->score = track->score;
         out->x_min = x1;
@@ -595,7 +644,7 @@ void app_tracker_init(sort_tracker_t *tracker)
     }
 
     memset(tracker, 0, sizeof(*tracker));
-    tracker->next_track_id = 0;
+    tracker->next_track_id = TRACK_ID_MIN;
     tracker->frame_count = 0;
     tracker->max_age = 15;
     tracker->min_hits = 2;
