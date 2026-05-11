@@ -20,9 +20,12 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
     const double box_font_size = compact_ui ? 0.5 : 0.8;
     const int box_label_offset = compact_ui ? 8 : 5;
     const double cls_font_size = compact_ui ? 0.4 : 0.8;
+    const int fps_y = compact_ui ? 40 : 36;
+    const int cls_start_y = fps_y + perf_line_step + (compact_ui ? 8 : 6);
+    const int cls_line_step = compact_ui ? 26 : 30;
     int i;
     int info_x;
-    int info_y = compact_ui ? 40 : 36;
+    int info_y = fps_y;
 
     if (output_map_base == NULL || output_map_base == MAP_FAILED) {
         return;
@@ -131,7 +134,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
             }
         } else if (model->post_type == TELECHIPS_NPU_POST_CLASSIFIER) {
             cvDrawCls(output_map_base, app->display_width, app->display_height,
-                      model->cls_result.class_ids[0], left_overlay_margin, 40 + i * 30,
+                      model->cls_result.class_ids[0], left_overlay_margin, cls_start_y + i * cls_line_step,
                       color, cls_font_size);
         }
 
@@ -148,7 +151,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
     /* 마지막에 시스템 공통 정보(FPS/CPU/MEM)를 별도 영역에 표시한다. */
     cvDrawInfo(output_map_base, app->display_width, app->display_height,
                DRAW_INFO_FPS, app->perf.fps,
-               0, left_overlay_margin, compact_ui ? 40 : 36, perf_font_size, RGB(255, 255, 255));
+               0, left_overlay_margin, fps_y, perf_font_size, RGB(255, 255, 255));
     cvDrawInfo(output_map_base, app->display_width, app->display_height,
                DRAW_INFO_CPU, app->perf.cpuUtil[0],
                0, info_x, info_y, perf_font_size, RGB(255, 255, 255));
