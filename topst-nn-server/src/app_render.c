@@ -28,6 +28,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
         return;
     }
 
+    /* 네트워크별 결과를 한 화면에 겹쳐 그리기 위해 공통 오버레이 좌표를 계산한다. */
     info_x = (int)app->display_width - perf_column_width - right_overlay_margin;
     if (info_x < left_overlay_margin) {
         info_x = left_overlay_margin;
@@ -38,6 +39,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
         Color_t color = colors[i];
 
         if (model->post_type == TELECHIPS_NPU_POST_DETECTOR) {
+            /* detector는 tracker가 보정한 박스를 사용해 화면에 그린다. */
             int j;
             Box_t boxes[256];
             int box_count = model->tracked_result.count;
@@ -73,6 +75,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
                             color, color, box_font_size, box_label_offset);
             }
         } else if (model->post_type == TELECHIPS_NPU_POST_CUSTOM) {
+            /* lane 결과는 모델 좌표계를 디스플레이 좌표계로 변환해 선분으로 그린다. */
             static const Color_t lane_colors[6] = {
                 RGB(255, 0, 0),
                 RGB(0, 255, 0),
@@ -142,6 +145,7 @@ static void overlay_results(app_context_t *app, uint8_t *output_map_base)
         info_y += perf_line_step + perf_group_gap;
     }
 
+    /* 마지막에 시스템 공통 정보(FPS/CPU/MEM)를 별도 영역에 표시한다. */
     cvDrawInfo(output_map_base, app->display_width, app->display_height,
                DRAW_INFO_FPS, app->perf.fps,
                0, left_overlay_margin, compact_ui ? 40 : 36, perf_font_size, RGB(255, 255, 255));
@@ -165,6 +169,7 @@ int render_output_frame(app_context_t *app)
     }
 
     if (app->input_mode == APP_INPUT_CAMERA) {
+        /* 카메라 입력은 현재 캡처 버퍼를 그대로 디스플레이 해상도로 축소한다. */
         scaler_image_t src;
         scaler_image_t dst;
 
@@ -185,6 +190,7 @@ int render_output_frame(app_context_t *app)
             return -1;
         }
     } else {
+        /* TCP 입력은 staging buffer를 기준으로 디스플레이용 프레임을 만든다. */
         scaler_image_t src;
         scaler_image_t dst;
 
@@ -210,8 +216,10 @@ int render_output_frame(app_context_t *app)
         }
     }
 
+    /* 축소된 배경 영상 위에 detector/lane/perf 정보를 덧그린다. */
     overlay_results(app, app->memory.map_base_output[output_idx]);
 
+    /* 완성된 출력 버퍼를 overlay/display 장치에 실제로 보여준다. */
     if (display_show(app->display, app->memory.phy_base_output[output_idx], app->display_x,
                      app->display_y, app->display_width, app->display_height) != 0) {
         return -1;

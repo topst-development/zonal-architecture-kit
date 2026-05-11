@@ -170,6 +170,7 @@ static void tracker_kalman_predict(sort_track_t *track)
     int c;
     int k;
 
+    /* 현재 detection과 매칭하기 전에 다음 박스 상태를 먼저 예측한다. */
     if ((track->area + track->v_area) <= 1.0f) {
         track->v_area = 0.0f;
     }
@@ -545,6 +546,7 @@ static void tracker_associate(const tracker_detection_t *detections, int detecti
         return;
     }
 
+    /* 클래스가 같은 경우에만 IoU 비용 행렬을 만들고, 그 위에서 1:1 매칭을 푼다. */
     for (r = 0; r < detection_count; ++r) {
         for (c = 0; c < tracker_count; ++c) {
             float iou = 0.0f;
@@ -682,6 +684,7 @@ void app_tracker_update(app_context_t *app)
             continue;
         }
 
+        /* 트래킹은 detector 모델에만 적용되며, lane/classifier 결과는 이 단계를 건너뛴다. */
         tracker->frame_count++;
         detection_count = tracker_collect_detections(app, model, detections, APP_MAX_TRACKS);
 

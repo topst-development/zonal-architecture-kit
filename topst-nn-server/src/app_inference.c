@@ -10,6 +10,7 @@ static int build_network_paths(const char *dir, network_files_t *files)
 {
     int written;
 
+    /* 모델 디렉터리 아래의 고정 파일 이름을 실제 로드 경로로 조합 */
     if (dir == NULL || files == NULL) {
         return -1;
     }
@@ -38,6 +39,7 @@ static int build_network_paths(const char *dir, network_files_t *files)
 
 uint32_t app_align_width(uint32_t width, uint32_t multiple)
 {
+    /* NPU 입력 버퍼는 폭 정렬 제약있으므로 상수 배수  */
     if ((width % multiple) == 0u) {
         return width;
     }
@@ -46,6 +48,7 @@ uint32_t app_align_width(uint32_t width, uint32_t multiple)
 
 void cleanup_model(model_context_t *model)
 {
+    /* 모델별 NPU 자원은 입력 버퍼 -> 출력 버퍼 -> 네트워크 -> NPU 순으로 정리 */
     if (model->input_buf != NULL) {
         buffer_close(model->input_buf);
         model->input_buf = NULL;
@@ -69,11 +72,13 @@ int init_model(model_context_t *model)
     network_files_t files;
     uint32_t aligned_width;
 
+    /* net.so / npu_cmd.bin / quantized_network.bin 3종 파일을 먼저 검사 */
     if (build_network_paths(model->path, &files) != 0) {
         fprintf(stderr, "invalid model directory: %s\n", model->path);
         return -1;
     }
 
+    /* 각 모델은 지정된 cluster 번호의 NPU를 열고 그 위에 네트워크를 적재 */
     model->npu = npu_open(model->cluster);
     if (model->npu == NULL) {
         fprintf(stderr, "failed to open NPU cluster %d\n", model->cluster);
@@ -92,9 +97,11 @@ int init_model(model_context_t *model)
     model->output_size = network_get_output_size(model->net);
     model->post_type = network_get_type(model->net);
 
+    /* RGB 입력 기준으로 정렬된 폭을 사용해 실제 입력 버퍼 크기를 계산 */
     aligned_width = app_align_width((uint32_t)model->input_width, 16u);
     model->input_size = (int)(aligned_width * (uint32_t)model->input_height * 3u);
 
+    /* 입력/출력 버퍼는 모두 해당 NPU가 직접 접근할 수 있는 버퍼로 할당 */
     model->input_buf = buffer_alloc(model->npu, model->input_size);
     model->output_buf = buffer_alloc(model->npu, model->output_size);
     if (model->input_buf == NULL || model->output_buf == NULL) {
@@ -119,9 +126,11 @@ void *run_inference_thread(void *arg)
     inference_task_t *task = (inference_task_t *)arg;
     unsigned long long freq;
 
+    /* 매 프레임 추론 전에 이전 perf/error 상태를 지우고 새 측정을 시작 */
     memset(&task->model->perf, 0, sizeof(task->model->perf));
     memset(&task->model->err_status, 0, sizeof(task->model->err_status));
 
+    /* 준비된 input/output 버퍼를 사용해 동기 방식으로 NPU 추론을 실행 */
     task->run_status = network_run(task->model->net,
                                    task->model->input_buf,
                                    task->model->output_buf,
@@ -136,6 +145,7 @@ void *run_inference_thread(void *arg)
                task->model->perf.elapsed_in_us / 1000.0);
     }
 
+    /* conv MAC 수와 실행 시간을 이용해 대략적인 NPU 사용률을 계산 */
     if (task->run_status == 0 && task->model->perf.elapsed_in_us > 0) {
         freq = (unsigned long long)task->model->perf.elapsed_in_us * (NPU_CORE_CLOCK / 1000000ULL);
         freq = freq * NPU_ALPHA * NPU_CORE_NUM;
@@ -154,6 +164,7 @@ void *run_inference_thread(void *arg)
 
 int postprocess_model(model_context_t *model)
 {
+    /* 네트워크 타입에 맞춰 후처리 호출 */
     if (model->post_type == TELECHIPS_NPU_POST_DETECTOR) {
         memset(&model->det_result, 0, sizeof(model->det_result));
         return network_run_postprocess(model->net, model->output_buf,

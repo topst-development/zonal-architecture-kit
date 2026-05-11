@@ -18,12 +18,14 @@ int app_pipeline_run(app_context_t *app)
         pthread_t threads[APP_MAX_MODELS];
         int i;
 
+        /* 프레임 1장을 입력받은 뒤, 그 프레임에 대해 전체 인지 파이프라인을 수행한다. */
         if (acquire_input_frame(app) <= 0) {
             app_json_poll_accept(app);
             continue;
         }
         app_json_poll_accept(app);
 
+        /* 공용 입력 프레임을 각 모델의 NPU 입력 버퍼 크기에 맞게 리사이즈한다. */
         if (prepare_model_input(app, &app->models[0], SCALER_INDEX_0) != 0 ||
             prepare_model_input(app, &app->models[1], SCALER_INDEX_1) != 0) {
             fprintf(stderr, "failed to prepare input frame\n");
@@ -31,6 +33,7 @@ int app_pipeline_run(app_context_t *app)
             return -1;
         }
 
+        /* 추론이 가장 무거운 단계이므로 두 모델은 병렬 스레드로 실행한다. */
         for (i = 0; i < APP_MAX_MODELS; ++i) {
             memset(&tasks[i], 0, sizeof(tasks[i]));
             tasks[i].model = &app->models[i];
@@ -50,6 +53,7 @@ int app_pipeline_run(app_context_t *app)
             }
         }
 
+        /* 후처리는 raw NPU 출력을 detector/lane/classifier 결과 구조체로 변환한다. */
         for (i = 0; i < APP_MAX_MODELS; ++i) {
             if (postprocess_model(&app->models[i]) != 0) {
                 fprintf(stderr, "postprocess failed for model%d\n", i);
@@ -61,6 +65,7 @@ int app_pipeline_run(app_context_t *app)
             return -1;
         }
 
+        /* 트래커는 detector 결과를 받아 안정적인 track ID를 생성해 렌더링/JSON에 넘긴다. */
         app_tracker_update(app);
         app_monitor_update_fps(app);
         app->frame_index++;

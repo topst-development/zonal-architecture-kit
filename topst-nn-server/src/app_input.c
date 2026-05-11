@@ -17,6 +17,7 @@ static int recv_all(int fd, uint8_t *buf, size_t size)
 {
     size_t received = 0;
 
+    /* TCP는 바이트 스트림이므로 프레임 1장이 여러 recv() 조각으로 나뉘어 들어올 수 있음. */
     while (received < size) {
         ssize_t ret = recv(fd, buf + received, size - received, 0);
         if (ret == 0) {
@@ -144,6 +145,7 @@ int acquire_input_frame(app_context_t *app)
         return 1;
     }
 
+    /* TCP 모드에서는 frame_buffer에 RGB 프레임 1장이 모두 채워질 때까지 대기 */
     for (;;) {
         int ret;
 
@@ -190,6 +192,7 @@ int prepare_model_input(app_context_t *app, const model_context_t *model,
         scaler_image_t src;
         scaler_image_t dst;
 
+        /* 카메라 입력은 캡처된 물리 버퍼에서 바로 리사이즈할 수 있다. */
         src.paddr = app->camera_phys_addr;
         src.width = app->camera_width;
         src.height = app->camera_height;
@@ -212,6 +215,10 @@ int prepare_model_input(app_context_t *app, const model_context_t *model,
         scaler_image_t dst;
         unsigned char *stage_addr;
 
+        /*
+         * TCP 입력은 일반 호스트 메모리이므로, 하드웨어 스케일러가 읽기 전에
+         * NPU가 소유한 staging buffer로 한 번 복사
+         */
         if (app->tcp_stage_buf == NULL) {
             return -1;
         }

@@ -137,6 +137,7 @@ int app_json_send_results(app_context_t *app)
         return 0;
     }
 
+    /* 프레임 1장의 결과를 줄바꿈(\n)으로 끝나는 JSON 한 줄로 직렬화 */
     if (append_json(json_buf, sizeof(json_buf), &pos,
                     "{\"frame_index\":%llu,\"width\":%u,\"height\":%u,",
                     (unsigned long long)app->frame_index,
@@ -194,6 +195,7 @@ int app_json_send_results(app_context_t *app)
             const lane_polyline_t *ln = &model->lane_data->lane[lane_idx];
             const int lane_src_w = (model->lane_data->img_w > 0) ? model->lane_data->img_w : (int)app->camera_width;
             const int lane_src_h = (model->lane_data->img_h > 0) ? model->lane_data->img_h : (int)app->camera_height;
+            /* 차선 후처리 결과는 모델 고유 해상도일 수 있으므로 여기서 카메라 픽셀 기준으로 다시 맞춘다. */
             const float lane_sx = (float)app->camera_width / (float)((lane_src_w > 0) ? lane_src_w : 1);
             const float lane_sy = (float)app->camera_height / (float)((lane_src_h > 0) ? lane_src_h : 1);
 

@@ -1,0 +1,19 @@
+{
+  "image": "test.png",
+  "source_width": 1280,
+  "source_height": 720,
+  "bev_width": 1280,
+  "bev_height": 720,
+  "source_points": [
+    [140, 580],
+    [1140, 580],
+    [520, 360],
+    [760, 360]
+  ],
+  "dest_points": [
+    [220, 650],
+    [1060, 650],
+    [340, 80],
+    [940, 80]
+  ]
+}

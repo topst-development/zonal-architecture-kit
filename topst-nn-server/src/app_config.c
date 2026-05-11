@@ -35,6 +35,7 @@ void app_config_print_usage(const char *prog)
 
 void app_config_set_defaults(app_context_t *app)
 {
+    /* 실행 전 기본 상태를 먼저 비우고, 장치/해상도/포트 기본값을 채움 */
     memset(app, 0, sizeof(*app));
 
     (void)snprintf(app->camera_device, sizeof(app->camera_device), "%s",
@@ -62,6 +63,7 @@ void app_config_set_defaults(app_context_t *app)
     app->json_output.client_fd = -1;
     app->json_output.port = DEFAULT_JSON_PORT;
 
+    /* 현재 구현은 모델 2개를 고정으로 사용하므로 index/cluster도 함께 지정 */
     app->models[0].index = 0;
     app->models[0].cluster = 0;
     app->models[1].index = 1;
@@ -76,6 +78,7 @@ int app_config_parse_args(app_context_t *app, int argc, char **argv)
         {0, 0, 0, 0},
     };
 
+    /* CLI 옵션 - 기본 설정 */
     while ((opt = getopt_long(argc, argv, "n:N:i:c:d:p:w:h:W:H:x:y:t:jv",
                               long_options, NULL)) != -1) {
         switch (opt) {
@@ -135,18 +138,23 @@ int app_config_parse_args(app_context_t *app, int argc, char **argv)
         }
     }
 
+    /* 두 모델 경로는 필수 입력이므로 비어 있으면 fail */
     if (app->models[0].path[0] == '\0' || app->models[1].path[0] == '\0') {
         return -1;
     }
 
+    /* 공통 timeout/verbose 값은 각 모델 설정에도 복사해 사용 */
     app->models[0].timeout_ms = app->timeout_ms;
     app->models[1].timeout_ms = app->timeout_ms;
     app->models[0].verbose = app->verbose;
     app->models[1].verbose = app->verbose;
+
+    /* TCP 입력은 외부 브리지와 연동되므로 JSON 출력도 활성화 */
     if (app->input_mode == APP_INPUT_TCP) {
         app->json_enabled = 1;
     }
 
+    /* 실제 적용된 핵심 입력 설정을 시작 로그에 남김 */
     printf("[input] mode=%s source=%ux%u port=%d json=%s\n",
            input_mode_to_string(app->input_mode),
            app->camera_width, app->camera_height,
