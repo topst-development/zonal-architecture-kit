@@ -18,13 +18,15 @@ int main(int argc, char **argv)
     }
 
     app_control_install_signal_handlers(&app);
-    (void)app_control_start_keyboard(&app);
 
     if (app_runtime_init(&app) != 0) {
         fprintf(stderr, "runtime initialization failed\n");
         status = 1;
         goto done;
     }
+
+    (void)app_control_start_keyboard(&app);
+    printf("[control] Ready. Type 'x' then Enter, or press Ctrl+C to stop the app cleanly.\n");
 
     if (app_pipeline_run(&app) != 0 && !app.stop) {
         status = 1;

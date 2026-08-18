@@ -2,6 +2,8 @@
 
 #include "app_json.h"
 
+#include "app_vision.h"
+
 #include <arpa/inet.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -87,6 +89,9 @@ static int json_output_start(json_output_context_t *ctx, int port)
 
 int app_json_init(app_context_t *app)
 {
+    if (app->input_mode == APP_INPUT_VISION) {
+        return 0;
+    }
     return json_output_start(&app->json_output, app->json_output.port);
 }
 
@@ -108,7 +113,7 @@ void app_json_poll_accept(app_context_t *app)
     socklen_t cli_len = sizeof(cli_addr);
     int cfd;
 
-    if (app->json_output.server_fd < 0) {
+    if (app->input_mode == APP_INPUT_VISION || app->json_output.server_fd < 0) {
         return;
     }
 
@@ -133,7 +138,10 @@ int app_json_send_results(app_context_t *app)
     int first = 1;
     ssize_t sent;
 
-    if (app->json_output.client_fd < 0) {
+    if (!app->json_enabled) {
+        return 0;
+    }
+    if (app->input_mode != APP_INPUT_VISION && app->json_output.client_fd < 0) {
         return 0;
     }
 
@@ -234,6 +242,10 @@ int app_json_send_results(app_context_t *app)
                     "],\"perf\":{\"fps\":%.2f,\"cpu\":%u,\"mem\":%u}}\n",
                     app->perf.fps, app->perf.cpuUtil[0], app->perf.memUsage) < 0) {
         return -1;
+    }
+
+    if (app->input_mode == APP_INPUT_VISION) {
+        return app_vision_send_result_json(app, json_buf, (size_t)pos);
     }
 
     sent = send(app->json_output.client_fd, json_buf, (size_t)pos, MSG_NOSIGNAL);

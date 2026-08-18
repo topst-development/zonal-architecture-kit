@@ -19,14 +19,16 @@ int app_runtime_init(app_context_t *app)
     }
 
     /* 출력 장치와 입력/출력 리사이즈에 필요한 scaler를 먼저 연다. */
-    if (display_create(&app->display) != 0) {
-        fprintf(stderr, "display_create failed\n");
-        return -1;
-    }
+    if (app->render_enabled) {
+        if (display_create(&app->display) != 0) {
+            fprintf(stderr, "display_create failed\n");
+            return -1;
+        }
 
-    if (display_open_device(app->display, app->display_device) != 0) {
-        fprintf(stderr, "display_open_device failed: %s\n", app->display_device);
-        return -1;
+        if (display_open_device(app->display, app->display_device) != 0) {
+            fprintf(stderr, "display_open_device failed: %s\n", app->display_device);
+            return -1;
+        }
     }
 
     if (scaler_create(&app->scaler) != 0) {
@@ -86,10 +88,12 @@ int app_runtime_init(app_context_t *app)
     }
 
     /* 디스플레이용 출력 버퍼를 PMAP 메모리로 확보한다. */
-    if (app_memory_init(&app->memory, app->camera_device,
-                        app->display_width, app->display_height) != 0) {
-        fprintf(stderr, "app_memory_init failed\n");
-        return -1;
+    if (app->render_enabled) {
+        if (app_memory_init(&app->memory, app->camera_device,
+                            app->display_width, app->display_height) != 0) {
+            fprintf(stderr, "app_memory_init failed\n");
+            return -1;
+        }
     }
 
     /* JSON 송신이 켜져 있으면 결과 스트리밍용 소켓 서버를 연다. */
@@ -126,7 +130,9 @@ void app_runtime_cleanup(app_context_t *app)
         app_tracker_reset(&app->trackers[i]);
     }
 
-    (void)app_memory_deinit(&app->memory, app->display_width, app->display_height);
+    if (app->render_enabled) {
+        (void)app_memory_deinit(&app->memory, app->display_width, app->display_height);
+    }
 
     /* 하드웨어 장치는 생성의 반대 순서로 닫아 자원 해제 흐름을 단순하게 유지한다. */
     if (app->scaler != NULL) {

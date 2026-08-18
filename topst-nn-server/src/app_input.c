@@ -11,6 +11,7 @@
 #include <unistd.h>
 
 #include "app_inference.h"
+#include "app_vision.h"
 #include "opencv_api.h"
 
 static int recv_all(int fd, uint8_t *buf, size_t size)
@@ -33,6 +34,19 @@ static int recv_all(int fd, uint8_t *buf, size_t size)
     }
 
     return 1;
+}
+
+static void expand_rgb888_to_argb8888(uint8_t *dst, const uint8_t *src,
+                                      size_t pixel_count)
+{
+    size_t i;
+
+    for (i = 0; i < pixel_count; ++i) {
+        dst[(i * 4u) + 0u] = src[(i * 3u) + 0u];
+        dst[(i * 4u) + 1u] = src[(i * 3u) + 1u];
+        dst[(i * 4u) + 2u] = src[(i * 3u) + 2u];
+        dst[(i * 4u) + 3u] = 0xffu;
+    }
 }
 
 static int tcp_input_init(tcp_input_context_t *ctx, int port, size_t frame_bytes)
@@ -99,6 +113,10 @@ static int tcp_accept_client(tcp_input_context_t *ctx)
 
 int app_input_init(app_context_t *app)
 {
+    if (app->input_mode == APP_INPUT_VISION) {
+        return app_vision_init(app);
+    }
+
     if (app->input_mode != APP_INPUT_TCP) {
         return 0;
     }
@@ -110,7 +128,7 @@ int app_input_init(app_context_t *app)
 
     app->tcp_stage_buf = buffer_alloc(app->models[0].npu,
                                       (int)((size_t)app->camera_width *
-                                            (size_t)app->camera_height * 3u));
+                                            (size_t)app->camera_height * 4u));
     if (app->tcp_stage_buf == NULL) {
         fprintf(stderr, "failed to allocate tcp staging buffer\n");
         return -1;
@@ -121,6 +139,10 @@ int app_input_init(app_context_t *app)
 
 void app_input_deinit(app_context_t *app)
 {
+    if (app->input_mode == APP_INPUT_VISION) {
+        app_vision_deinit(app);
+    }
+
     if (app->tcp_input.client_fd >= 0) {
         (void)close(app->tcp_input.client_fd);
         app->tcp_input.client_fd = -1;
@@ -145,7 +167,11 @@ int acquire_input_frame(app_context_t *app)
         return 1;
     }
 
-    /* TCP 모드에서는 frame_buffer에 RGB 프레임 1장이 모두 채워질 때까지 대기 */
+    if (app->input_mode == APP_INPUT_VISION) {
+        return app_vision_recv_frame(app);
+    }
+
+    /* TCP mode waits until one complete RGB frame is received into frame_buffer. */
     for (;;) {
         int ret;
 
@@ -182,6 +208,8 @@ void release_input_frame(app_context_t *app)
 {
     if (app->input_mode == APP_INPUT_CAMERA && app->camera != NULL) {
         (void)camera_release_buffer(app->camera);
+    } else if (app->input_mode == APP_INPUT_VISION) {
+        app_vision_release_frame(app);
     }
 }
 
@@ -197,6 +225,32 @@ int prepare_model_input(app_context_t *app, const model_context_t *model,
         src.width = app->camera_width;
         src.height = app->camera_height;
         src.format = SCALER_FORMAT_ARGB8888;
+
+        dst.paddr = model->input_buf->paddr;
+        dst.width = app_align_width((uint32_t)model->input_width, 16u);
+        dst.height = (uint32_t)model->input_height;
+        dst.format = SCALER_FORMAT_RGB888;
+
+        if (scaler_resize(app->scaler, scaler_index, src, dst) != 0) {
+            return -1;
+        }
+
+        return scaler_poll(app->scaler, scaler_index);
+    }
+
+    if (app->input_mode == APP_INPUT_VISION) {
+        scaler_image_t src;
+        scaler_image_t dst;
+        uint64_t frame_phys = app_vision_frame_phys(app);
+
+        if (frame_phys == 0) {
+            return -1;
+        }
+
+        src.paddr = frame_phys;
+        src.width = app->camera_width;
+        src.height = app->camera_height;
+        src.format = SCALER_FORMAT_RGB888;
 
         dst.paddr = model->input_buf->paddr;
         dst.width = app_align_width((uint32_t)model->input_width, 16u);
@@ -228,12 +282,14 @@ int prepare_model_input(app_context_t *app, const model_context_t *model,
             return -1;
         }
 
-        memcpy(stage_addr, app->tcp_input.frame_buffer, app->tcp_input.frame_bytes);
+        expand_rgb888_to_argb8888(stage_addr, app->tcp_input.frame_buffer,
+                                  (size_t)app->camera_width *
+                                  (size_t)app->camera_height);
 
         src.paddr = app->tcp_stage_buf->paddr;
         src.width = app->camera_width;
         src.height = app->camera_height;
-        src.format = SCALER_FORMAT_RGB888;
+        src.format = SCALER_FORMAT_ARGB8888;
 
         dst.paddr = model->input_buf->paddr;
         dst.width = app_align_width((uint32_t)model->input_width, 16u);

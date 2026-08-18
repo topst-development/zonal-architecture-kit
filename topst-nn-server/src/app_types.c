@@ -7,6 +7,8 @@ const char *input_mode_to_string(app_input_mode_t mode)
             return "camera";
         case APP_INPUT_TCP:
             return "tcp";
+        case APP_INPUT_VISION:
+            return "vision";
         default:
             return "unknown";
     }

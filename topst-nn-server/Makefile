@@ -8,20 +8,26 @@ CC := $(CROSS_COMPILE)gcc
 CXX := $(CROSS_COMPILE)gcc
 
 OPENCV_ROOT ?= ./third_party/opencv
+VISION_PROTOCOL_ROOT ?= ./third_party/visionprotocol
+JSON_C_ROOT ?= ./third_party/json-c
 
-INCS := -I./inc -I./npu -I$(OPENCV_ROOT)/include/opencv4
+INCS := -I./inc -I./npu -I./common/message -I$(OPENCV_ROOT)/include/opencv4 -I$(VISION_PROTOCOL_ROOT)/include -I$(JSON_C_ROOT)/include
 
 CFLAGS := -Wall -std=c11 -mcpu=cortex-a53 -pthread -O2 -g -pg -MMD -MP
 CXXFLAGS := -Wall -std=c++11 -mcpu=cortex-a53 -pthread -O2 -g -pg -MMD -MP
 
-LIBS := -L$(OPENCV_ROOT)/lib -lpthread -ldl -lm -lstdc++
+LIBS := -L$(OPENCV_ROOT)/lib -L$(VISION_PROTOCOL_ROOT)/lib -L$(JSON_C_ROOT)/lib -lpthread -ldl -lm -lstdc++
+LIBS += -Wl,-rpath,'$$ORIGIN/third_party/visionprotocol/lib'
+LIBS += -Wl,-rpath,'$$ORIGIN/third_party/json-c/lib'
+LIBS += -Wl,-rpath,'$$ORIGIN/third_party/opencv/lib'
 LIBS += -lopencv_core -lopencv_imgproc -lopencv_imgcodecs
-LIBS += -lz -ltbb -ljpeg -lwebp -lpng16 -ltiff -llzma
+LIBS += -lz -ltbb -ljpeg -lwebp -lpng16 -ltiff -llzma -lvisionprotocol -ljson-c
 
 SRCS_C := \
 	npu/npu_api.c \
 	npu/npu_api_ex.c \
 	npu/npu_api_mem.c \
+	common/message/message_api.c \
 	src/app_config.c \
 	src/app_control.c \
 	src/app_inference.c \
@@ -34,6 +40,7 @@ SRCS_C := \
 	src/app_runtime.c \
 	src/app_tracker.c \
 	src/app_types.c \
+	src/app_vision.c \
 	src/main.c \
 	src/platform_api.c
 

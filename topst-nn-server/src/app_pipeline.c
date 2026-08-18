@@ -16,10 +16,19 @@ int app_pipeline_run(app_context_t *app)
     while (!app->stop) {
         inference_task_t tasks[APP_MAX_MODELS];
         pthread_t threads[APP_MAX_MODELS];
+        int input_status;
         int i;
 
         /* 프레임 1장을 입력받은 뒤, 그 프레임에 대해 전체 인지 파이프라인을 수행한다. */
-        if (acquire_input_frame(app) <= 0) {
+        input_status = acquire_input_frame(app);
+        if (input_status < 0) {
+            if (app->stop) {
+                break;
+            }
+            fprintf(stderr, "failed to acquire input frame\n");
+            return -1;
+        }
+        if (input_status == 0) {
             app_json_poll_accept(app);
             continue;
         }
@@ -71,10 +80,12 @@ int app_pipeline_run(app_context_t *app)
         app->frame_index++;
         (void)app_json_send_results(app);
 
-        if (render_output_frame(app) != 0) {
-            fprintf(stderr, "failed to display frame\n");
-            release_input_frame(app);
-            return -1;
+        if (app->render_enabled) {
+            if (render_output_frame(app) != 0) {
+                fprintf(stderr, "failed to display frame\n");
+                release_input_frame(app);
+                return -1;
+            }
         }
 
         release_input_frame(app);

@@ -23,6 +23,9 @@
 #define DEFAULT_DISPLAY_HEIGHT 480
 #define DEFAULT_TCP_PORT 9999
 #define DEFAULT_JSON_PORT 9998
+#define DEFAULT_VISION_STREAM_PORT 9998
+#define DEFAULT_VISION_MESSAGE_PORT 9999
+#define DEFAULT_VISION_TARGET_IP "192.168.0.101"
 #define CPU_CORE_NUM 4
 #define CPU_CORE_NUM_MAX 5
 #define CPU_STAT_MAX 4
@@ -102,6 +105,7 @@ typedef struct {
 typedef enum {
     APP_INPUT_CAMERA = 0,
     APP_INPUT_TCP,
+    APP_INPUT_VISION,
 } app_input_mode_t;
 
 typedef struct {
@@ -117,6 +121,19 @@ typedef struct {
     int client_fd;
     int port;
 } json_output_context_t;
+
+typedef struct {
+    void *handle;
+    char target_ip[64];
+    int stream_port;
+    int message_port;
+    size_t frame_bytes;
+    uint64_t recv_phys[APP_PMAP_SPLIT_NUMBER];
+    uint8_t *active_frame;
+    uint64_t active_phys;
+    uint64_t active_sync;
+    uint64_t result_seq;
+} vision_transport_context_t;
 
 typedef struct {
     int index;
@@ -164,6 +181,7 @@ typedef struct {
     int timeout_ms;
     int verbose;
     int json_enabled;
+    int render_enabled;
     volatile sig_atomic_t stop;
 
     camera_handle_t camera;
@@ -176,6 +194,7 @@ typedef struct {
     uint64_t frame_index;
     tcp_input_context_t tcp_input;
     json_output_context_t json_output;
+    vision_transport_context_t vision;
 
     model_context_t models[APP_MAX_MODELS];
     sort_tracker_t trackers[APP_MAX_MODELS];

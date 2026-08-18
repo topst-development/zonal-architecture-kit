@@ -5,12 +5,11 @@
 #include <pthread.h>
 #include <signal.h>
 #include <stdio.h>
-#include <termios.h>
+#include <string.h>
+#include <sys/select.h>
 #include <unistd.h>
 
 static app_context_t *g_app_ctx;
-static struct termios g_saved_termios;
-static int g_termios_valid;
 static int g_keyboard_enabled;
 static pthread_t g_keyboard_thread;
 
@@ -27,16 +26,28 @@ static void *app_control_keyboard_thread(void *arg)
     app_context_t *app = (app_context_t *)arg;
 
     while (!app->stop) {
-        char ch;
-        ssize_t ret = read(STDIN_FILENO, &ch, 1);
+        fd_set readfds;
+        struct timeval timeout;
 
-        if (ret <= 0) {
+        FD_ZERO(&readfds);
+        FD_SET(STDIN_FILENO, &readfds);
+        timeout.tv_sec = 0;
+        timeout.tv_usec = 200 * 1000;
+
+        if (select(STDIN_FILENO + 1, &readfds, NULL, NULL, &timeout) <= 0) {
             continue;
         }
-        if (ch == 'x' || ch == 'X') {
-            app->stop = 1;
-            raise(SIGINT);
-            break;
+        if (FD_ISSET(STDIN_FILENO, &readfds)) {
+            char line[32];
+            ssize_t ret = read(STDIN_FILENO, line, sizeof(line));
+
+            if (ret <= 0) {
+                continue;
+            }
+            if (line[0] == 'x' || line[0] == 'X') {
+                app->stop = 1;
+                break;
+            }
         }
     }
 
@@ -45,9 +56,17 @@ static void *app_control_keyboard_thread(void *arg)
 
 void app_control_install_signal_handlers(app_context_t *app)
 {
+    struct sigaction action;
+
     g_app_ctx = app;
-    signal(SIGINT, app_control_on_signal);
-    signal(SIGTERM, app_control_on_signal);
+    memset(&action, 0, sizeof(action));
+    action.sa_handler = app_control_on_signal;
+    sigemptyset(&action.sa_mask);
+    (void)sigaction(SIGINT, &action, NULL);
+    (void)sigaction(SIGTERM, &action, NULL);
+    (void)sigaction(SIGTSTP, &action, NULL);
+    (void)sigaction(SIGQUIT, &action, NULL);
+    (void)sigaction(SIGHUP, &action, NULL);
 }
 
 void app_control_uninstall_signal_handlers(void)
@@ -55,35 +74,18 @@ void app_control_uninstall_signal_handlers(void)
     g_app_ctx = NULL;
     signal(SIGINT, SIG_DFL);
     signal(SIGTERM, SIG_DFL);
+    signal(SIGTSTP, SIG_DFL);
+    signal(SIGQUIT, SIG_DFL);
+    signal(SIGHUP, SIG_DFL);
 }
 
 int app_control_start_keyboard(app_context_t *app)
 {
-    struct termios raw_termios;
-
     if (!isatty(STDIN_FILENO)) {
         return 0;
     }
-    if (tcgetattr(STDIN_FILENO, &g_saved_termios) != 0) {
-        return -1;
-    }
-
-    g_termios_valid = 1;
-    raw_termios = g_saved_termios;
-    raw_termios.c_lflag &= (tcflag_t)~(ICANON | ECHO);
-    raw_termios.c_cc[VMIN] = 0;
-    raw_termios.c_cc[VTIME] = 1;
-
-    if (tcsetattr(STDIN_FILENO, TCSANOW, &raw_termios) != 0) {
-        g_termios_valid = 0;
-        return -1;
-    }
 
     if (pthread_create(&g_keyboard_thread, NULL, app_control_keyboard_thread, app) != 0) {
-        if (g_termios_valid) {
-            (void)tcsetattr(STDIN_FILENO, TCSANOW, &g_saved_termios);
-            g_termios_valid = 0;
-        }
         return -1;
     }
 
@@ -97,10 +99,5 @@ void app_control_stop_keyboard(void)
         g_app_ctx->stop = 1;
         (void)pthread_join(g_keyboard_thread, NULL);
         g_keyboard_enabled = 0;
-    }
-
-    if (g_termios_valid) {
-        (void)tcsetattr(STDIN_FILENO, TCSANOW, &g_saved_termios);
-        g_termios_valid = 0;
     }
 }

@@ -11,31 +11,37 @@ void app_config_print_usage(const char *prog)
             "Usage: %s -n <model0_dir> -N <model1_dir> [options]\n"
             "  -n <dir>   Cluster 0 model directory\n"
             "  -N <dir>   Cluster 1 model directory\n"
-            "  -i <mode>  Input mode: camera|tcp, default: camera\n"
+            "  -i <mode>  Input mode: camera|tcp|raw-tcp|vision, default: camera\n"
+            "               tcp: Vision Protocol compatibility alias\n"
+            "               raw-tcp: legacy raw RGB socket transport\n"
             "  -c <path>  Camera device, default: %s\n"
             "  -d <path>  Display device, default: %s\n"
-            "  -p <num>   TCP port for -i tcp, default: %d\n"
-            "  -w <num>   Camera width, default: %d\n"
-            "  -h <num>   Camera height, default: %d\n"
+            "  -p <num>   TCP port for -i raw-tcp, default: %d\n"
+            "  --vision-target <ip>  PC/RTPM Vision Protocol server IP, default: %s\n"
+            "  --stream-port <num>   Vision stream port, default: %d\n"
+            "  --message-port <num>  Vision message port, default: %d\n"
+            "  -w <num>   Camera/frame width, default: %d\n"
+            "  -h <num>   Camera/frame height, default: %d\n"
             "  -W <num>   Display width, default: %d\n"
             "  -H <num>   Display height, default: %d\n"
             "  -x <num>   Display x position, default: 0\n"
             "  -y <num>   Display y position, default: 0\n"
             "  -t <num>   Timeout ms, default: 1000\n"
-            "  -j         Enable JSON output server (always enabled in tcp mode)\n"
+            "  -j         Enable JSON output server/result messages\n"
+            "  --no-render Disable display/render output for debugging\n"
             "  -v         Verbose perf logging\n"
             "\n"
-            "TCP mode expects raw RGB888 frames of size width*height*3 bytes.\n"
-            "Press 'x' in the terminal to stop the app cleanly.\n",
+            "TCP and Vision modes expect raw RGB888 frames of size width*height*3 bytes.\n"
+            "Type 'x' then Enter, or press Ctrl+C to stop the app cleanly.\n",
             prog, DEFAULT_CAMERA_DEVICE, DEFAULT_DISPLAY_DEVICE,
-            DEFAULT_TCP_PORT,
+            DEFAULT_TCP_PORT, DEFAULT_VISION_TARGET_IP,
+            DEFAULT_VISION_STREAM_PORT, DEFAULT_VISION_MESSAGE_PORT,
             DEFAULT_CAMERA_WIDTH, DEFAULT_CAMERA_HEIGHT,
             DEFAULT_DISPLAY_WIDTH, DEFAULT_DISPLAY_HEIGHT);
 }
 
 void app_config_set_defaults(app_context_t *app)
 {
-    /* 실행 전 기본 상태를 먼저 비우고, 장치/해상도/포트 기본값을 채움 */
     memset(app, 0, sizeof(*app));
 
     (void)snprintf(app->camera_device, sizeof(app->camera_device), "%s",
@@ -48,6 +54,8 @@ void app_config_set_defaults(app_context_t *app)
     (void)snprintf(app->scaler_device[SCALER_INDEX_1],
                    sizeof(app->scaler_device[SCALER_INDEX_1]), "%s",
                    DEFAULT_SCALER1_DEVICE);
+    (void)snprintf(app->vision.target_ip, sizeof(app->vision.target_ip), "%s",
+                   DEFAULT_VISION_TARGET_IP);
 
     app->camera_width = DEFAULT_CAMERA_WIDTH;
     app->camera_height = DEFAULT_CAMERA_HEIGHT;
@@ -56,14 +64,16 @@ void app_config_set_defaults(app_context_t *app)
     app->timeout_ms = 1000;
     app->input_mode = APP_INPUT_CAMERA;
     app->json_enabled = 0;
+    app->render_enabled = 1;
     app->tcp_input.server_fd = -1;
     app->tcp_input.client_fd = -1;
     app->tcp_input.port = DEFAULT_TCP_PORT;
     app->json_output.server_fd = -1;
     app->json_output.client_fd = -1;
     app->json_output.port = DEFAULT_JSON_PORT;
+    app->vision.stream_port = DEFAULT_VISION_STREAM_PORT;
+    app->vision.message_port = DEFAULT_VISION_MESSAGE_PORT;
 
-    /* 현재 구현은 모델 2개를 고정으로 사용하므로 index/cluster도 함께 지정 */
     app->models[0].index = 0;
     app->models[0].cluster = 0;
     app->models[1].index = 1;
@@ -75,10 +85,13 @@ int app_config_parse_args(app_context_t *app, int argc, char **argv)
     int opt;
     static const struct option long_options[] = {
         {"json", no_argument, NULL, 'j'},
+        {"no-render", no_argument, NULL, 1000},
+        {"vision-target", required_argument, NULL, 1001},
+        {"stream-port", required_argument, NULL, 1002},
+        {"message-port", required_argument, NULL, 1003},
         {0, 0, 0, 0},
     };
 
-    /* CLI 옵션 - 기본 설정 */
     while ((opt = getopt_long(argc, argv, "n:N:i:c:d:p:w:h:W:H:x:y:t:jv",
                               long_options, NULL)) != -1) {
         switch (opt) {
@@ -92,7 +105,14 @@ int app_config_parse_args(app_context_t *app, int argc, char **argv)
                 if (strcmp(optarg, "camera") == 0) {
                     app->input_mode = APP_INPUT_CAMERA;
                 } else if (strcmp(optarg, "tcp") == 0) {
+                    /* Keep the legacy command line while using the bridge's
+                     * default Vision Protocol transport internally. */
+                    app->input_mode = APP_INPUT_VISION;
+                    printf("[input] -i tcp compatibility mode: using Vision Protocol\n");
+                } else if (strcmp(optarg, "raw-tcp") == 0) {
                     app->input_mode = APP_INPUT_TCP;
+                } else if (strcmp(optarg, "vision") == 0) {
+                    app->input_mode = APP_INPUT_VISION;
                 } else {
                     return -1;
                 }
@@ -133,33 +153,51 @@ int app_config_parse_args(app_context_t *app, int argc, char **argv)
             case 'v':
                 app->verbose = 1;
                 break;
+            case 1000:
+                app->render_enabled = 0;
+                break;
+            case 1001:
+                (void)snprintf(app->vision.target_ip, sizeof(app->vision.target_ip), "%s", optarg);
+                break;
+            case 1002:
+                app->vision.stream_port = atoi(optarg);
+                break;
+            case 1003:
+                app->vision.message_port = atoi(optarg);
+                break;
             default:
                 return -1;
         }
     }
 
-    /* 두 모델 경로는 필수 입력이므로 비어 있으면 fail */
     if (app->models[0].path[0] == '\0' || app->models[1].path[0] == '\0') {
         return -1;
     }
 
-    /* 공통 timeout/verbose 값은 각 모델 설정에도 복사해 사용 */
     app->models[0].timeout_ms = app->timeout_ms;
     app->models[1].timeout_ms = app->timeout_ms;
     app->models[0].verbose = app->verbose;
     app->models[1].verbose = app->verbose;
 
-    /* TCP 입력은 외부 브리지와 연동되므로 JSON 출력도 활성화 */
-    if (app->input_mode == APP_INPUT_TCP) {
+    if (app->input_mode == APP_INPUT_TCP || app->input_mode == APP_INPUT_VISION) {
         app->json_enabled = 1;
     }
 
-    /* 실제 적용된 핵심 입력 설정을 시작 로그에 남김 */
-    printf("[input] mode=%s source=%ux%u port=%d json=%s\n",
-           input_mode_to_string(app->input_mode),
-           app->camera_width, app->camera_height,
-           app->tcp_input.port,
-           app->json_enabled ? "on" : "off");
+    if (app->input_mode == APP_INPUT_VISION) {
+        printf("[input] mode=%s source=%ux%u target=%s stream=%d message=%d json=%s render=%s\n",
+               input_mode_to_string(app->input_mode),
+               app->camera_width, app->camera_height,
+               app->vision.target_ip, app->vision.stream_port, app->vision.message_port,
+               app->json_enabled ? "on" : "off",
+               app->render_enabled ? "on" : "off");
+    } else {
+        printf("[input] mode=%s source=%ux%u port=%d json=%s render=%s\n",
+               input_mode_to_string(app->input_mode),
+               app->camera_width, app->camera_height,
+               app->tcp_input.port,
+               app->json_enabled ? "on" : "off",
+               app->render_enabled ? "on" : "off");
+    }
 
     return 0;
 }

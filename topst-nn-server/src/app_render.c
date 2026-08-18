@@ -1,4 +1,5 @@
 #include "app_render.h"
+#include "app_vision.h"
 
 #include <sys/mman.h>
 
@@ -193,18 +194,26 @@ int render_output_frame(app_context_t *app)
             return -1;
         }
     } else {
-        /* TCP 입력은 staging buffer를 기준으로 디스플레이용 프레임을 만든다. */
         scaler_image_t src;
         scaler_image_t dst;
 
-        if (app->tcp_stage_buf == NULL) {
-            return -1;
+        if (app->input_mode == APP_INPUT_VISION) {
+            uint64_t frame_phys = app_vision_frame_phys(app);
+            if (frame_phys == 0) {
+                return -1;
+            }
+            src.paddr = frame_phys;
+            src.format = SCALER_FORMAT_RGB888;
+        } else {
+            if (app->tcp_stage_buf == NULL) {
+                return -1;
+            }
+            src.paddr = app->tcp_stage_buf->paddr;
+            src.format = SCALER_FORMAT_ARGB8888;
         }
 
-        src.paddr = app->tcp_stage_buf->paddr;
         src.width = app->camera_width;
         src.height = app->camera_height;
-        src.format = SCALER_FORMAT_RGB888;
 
         dst.paddr = app->memory.phy_base_output[output_idx];
         dst.width = app->display_width;
