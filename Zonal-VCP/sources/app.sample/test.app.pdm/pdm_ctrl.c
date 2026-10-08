@@ -17,6 +17,8 @@ extern QueueHandle_t xQ_MotorWheel;
 #define ESC_STOP_DUTY_NS                1000000UL
 #define ESC_MAX_DUTY_NS                 2000000UL
 #define ESC_MAX_ANGLE_FIX               (180U * 256U)
+#define ESC_MIN_RUN_VALUE               24576
+#define ESC_MAX_RUN_VALUE               32512
 #define ESC_ARM_VALUE_FIX               ((uint32)0x40U << 8)
 #define ESC_ARM_DELAY_MS                1000U
 
@@ -158,11 +160,11 @@ void ConfigureServoPWM(uint32 channel, uint32 port, uint32 angle_deg)
 }
 
 /* -------------------------- Task -------------------------- */
-
-void MotorSpeedTask(void *pvParameters) 
+void MotorSpeedTask(void *pvParameters)
 {
     uint8 recvBuf[2];
     uint32 speed_fix = 0;
+    uint32 raw_input = 0;
 
     (void)pvParameters;
 
@@ -190,21 +192,39 @@ void MotorSpeedTask(void *pvParameters)
         }
     }
 
-    for (;;) 
+    for (;;)
     {
-        if (xQueueReceive(xQ_MotorSpeed, recvBuf, portMAX_DELAY) == pdPASS) 
+        if (xQueueReceive(xQ_MotorSpeed, recvBuf, portMAX_DELAY) == pdPASS)
         {
             if (esc_state != ESC_STATE_ARMED)
             {
                 continue;
             }
 
-            speed_fix = ((uint32)recvBuf[0] << 8) | (uint32)recvBuf[1];
+            raw_input = (uint32)recvBuf[0];
+
+            if (raw_input > 100)
+            {
+                raw_input = 100;
+            }
+
+            if (raw_input == 0)
+            {
+                speed_fix = 0;
+            }
+            else
+            {
+                speed_fix = ESC_MIN_RUN_VALUE + ((raw_input - 1) * (ESC_MAX_RUN_VALUE - ESC_MIN_RUN_VALUE) / 99);
+            }
 
             if (ESC_SetAngle256(speed_fix) != SAL_RET_SUCCESS)
             {
                 esc_state = ESC_STATE_ERROR;
                 mcu_printf("ESC Update Failed!\n");
+            }
+            else
+            {
+                mcu_printf("Input: %d -> PWM Duty Val: %d\n", raw_input, speed_fix);
             }
         }
     }
